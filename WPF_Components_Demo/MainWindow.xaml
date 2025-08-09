@@ -14,27 +14,24 @@
                    HorizontalAlignment="Center" 
                    DockPanel.Dock="Top"
                    />
-        <TreeView x:Name="TopicsTreeView" 
+        <TreeView ItemsSource="{Binding Topics}"
                   Margin="10" 
                   DockPanel.Dock="Left" 
-                  Width="200"
-                  SelectedItemChanged="TopicsTreeView_SelectedItemChanged"
-                  >
-            <!--<TreeViewItem Header="Controls">
-                <TreeViewItem Header="Buttons"/>
-                <TreeViewItem Header="TextBoxes"/>
-                <TreeViewItem Header="Labels"/>
-            </TreeViewItem>
-            <TreeViewItem Header="Layouts">
-                <TreeViewItem Header="Grid"/>
-                <TreeViewItem Header="StackPanel"/>
-                <TreeViewItem Header="DockPanel"/>
-            </TreeViewItem>
-            <TreeViewItem Header="Data Binding">
-                <TreeViewItem Header="Simple Binding"/>
-                <TreeViewItem Header="Collection Binding"/>
-            </TreeViewItem>-->
+                  Width="200">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding SubTopics}">
+                    <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+            <TreeView.Resources>
+                <DataTemplate DataType="{x:Type local:SubTopicViewModel}">
+                    <TextBlock Text="{Binding Title}">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding LaunchDemoCommand}" />
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+                </DataTemplate>
+            </TreeView.Resources>
         </TreeView>
-
     </DockPanel>
 </Window>
