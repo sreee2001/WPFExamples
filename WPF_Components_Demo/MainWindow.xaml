@@ -6,7 +6,35 @@
         xmlns:local="clr-namespace:WPF_Components_Demo"
         mc:Ignorable="d"
         Title="Welcome To WPF Features Demonstration" Height="600" Width="800">
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <TextBlock Text="Welcome to WPF Features Demonstration" 
+                   FontSize="28" 
+                   FontWeight="Bold" 
+                   Margin="10"
+                   HorizontalAlignment="Center" 
+                   DockPanel.Dock="Top"
+                   />
+        <TreeView x:Name="TopicsTreeView" 
+                  Margin="10" 
+                  DockPanel.Dock="Left" 
+                  Width="200"
+                  SelectedItemChanged="TopicsTreeView_SelectedItemChanged"
+                  >
+            <!--<TreeViewItem Header="Controls">
+                <TreeViewItem Header="Buttons"/>
+                <TreeViewItem Header="TextBoxes"/>
+                <TreeViewItem Header="Labels"/>
+            </TreeViewItem>
+            <TreeViewItem Header="Layouts">
+                <TreeViewItem Header="Grid"/>
+                <TreeViewItem Header="StackPanel"/>
+                <TreeViewItem Header="DockPanel"/>
+            </TreeViewItem>
+            <TreeViewItem Header="Data Binding">
+                <TreeViewItem Header="Simple Binding"/>
+                <TreeViewItem Header="Collection Binding"/>
+            </TreeViewItem>-->
+        </TreeView>
+
+    </DockPanel>
 </Window>
