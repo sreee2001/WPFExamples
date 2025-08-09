@@ -1,0 +1,3 @@
+[submodule "DotnetFrameworkReferenceLibraries"]
+	path = DotnetFrameworkReferenceLibraries
+	url = https://github.com/sreee2001/DotnetFrameworkReferenceLibraries.git
