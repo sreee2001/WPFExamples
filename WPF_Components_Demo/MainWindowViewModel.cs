@@ -40,6 +40,7 @@ namespace WPF_Components_Demo
     {
         public string Title { get; set; }
         public ObservableCollection<SubTopicViewModel> SubTopics { get; set; } = new ObservableCollection<SubTopicViewModel>();
+        public bool IsExpanded { get; set; } = true;
         public TopicViewModel(IFeatureDemoTopic topic)
         {
             Title = topic.Title;
@@ -55,6 +56,7 @@ namespace WPF_Components_Demo
         public string Title { get; set; }
         public IFeatureDemoSubTopic SubTopic { get; set; }
         public ICommand LaunchDemoCommand { get; set; }
+        public bool IsExpanded { get; set; } = true;
         public SubTopicViewModel(IFeatureDemoSubTopic subTopic)
         {
             Title = subTopic.Title;

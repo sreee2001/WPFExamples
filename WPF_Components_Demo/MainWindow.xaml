@@ -18,6 +18,11 @@
                   Margin="10" 
                   DockPanel.Dock="Left" 
                   Width="200">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                </Style>
+            </TreeView.ItemContainerStyle>
             <TreeView.ItemTemplate>
                 <HierarchicalDataTemplate ItemsSource="{Binding SubTopics}">
                     <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
