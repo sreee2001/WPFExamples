@@ -14,37 +14,39 @@
                     <StackPanel Orientation="Vertical" >
                         <WrapPanel Orientation="Horizontal" Margin="10, 10, 10, 10">
                             <Label Content="Content :"/>
-                            <TextBox Text="{Binding Content}" Width="150" Height="20"/>
+                            <TextBox Text="{Binding Content, Mode=TwoWay}" Width="150" Height="20"/>
                             <Label Content="FontFamily :"/>
-                            <TextBox Text="{Binding FontFamily}" Width="150" Height="20"/>
+                            <TextBox Text="{Binding FontFamily, Mode=TwoWay}" Width="150" Height="20"/>
                             <Label Content="FontSize :"/>
-                            <TextBox Text="{Binding FontSize}" Width="30" Height="20"/>
+                            <TextBox Text="{Binding FontSize, Mode=TwoWay}" Width="30" Height="20"/>
                             <Label Content="FontWeight :"/>
-                            <TextBox Text="{Binding FontWeight}" Width="100" Height="20"/>
+                            <ComboBox ItemsSource="{Binding DataContext.PropertyValuesCollection.FontWeightsCollection, RelativeSource={RelativeSource AncestorType=Window}}" SelectedItem="{Binding FontWeight, Mode=TwoWay}" Width="100" Height="20"/>
                             <Label Content="Foreground :"/>
-                            <TextBox Text="{Binding Foreground}" Width="100" Height="20"/>
+                            <TextBox Text="{Binding Foreground, Mode=TwoWay}" Width="100" Height="20"/>
                             <Label Content="Background :"/>
-                            <TextBox Text="{Binding Background}" Width="100" Height="20"/>
+                            <TextBox Text="{Binding Background, Mode=TwoWay}" Width="100" Height="20"/>
                             <Label Content="HorizontalAlignment :"/>
-                            <TextBox Text="{Binding HorizontalAlignment}" Width="100" Height="20"/>
+                            <TextBox Text="{Binding HorizontalAlignment, Mode=TwoWay}" Width="100" Height="20"/>
                             <Label Content="VerticalAlignment :"/>
-                            <TextBox Text="{Binding VerticalAlignment}" Width="100" Height="20"/>
+                            <TextBox Text="{Binding VerticalAlignment, Mode=TwoWay}" Width="100" Height="20"/>
                             <Label Content="Width :"/>
-                            <TextBox Text="{Binding Width}" Width="40" Height="20"/>
+                            <TextBox Text="{Binding Width, Mode=TwoWay}" Width="40" Height="20"/>
                             <Label Content="Height :"/>
-                            <TextBox Text="{Binding Height}" Width="40" Height="20"/>
+                            <TextBox Text="{Binding Height, Mode=TwoWay}" Width="40" Height="20"/>
                         </WrapPanel>
                         <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
-                        <Label Content="{Binding Content}" 
-                               FontFamily="{Binding FontFamily}"
-                               FontSize="{Binding FontSize}"
-                               FontWeight="{Binding FontWeight}"
-                               Foreground="{Binding Foreground}"
-                               Background="{Binding Background}"                               
-                               HorizontalAlignment="{Binding HorizontalAlignment}"
-                               VerticalAlignment="{Binding VerticalAlignment}"
-                               Width="{Binding Width}"
-                               Height="{Binding Height}"
+                        <Label Content="{Binding Content, Mode=TwoWay}" 
+                               FontFamily="{Binding FontFamily, Mode=TwoWay}"
+                               FontSize="{Binding FontSize, Mode=TwoWay}"
+                               FontWeight="{Binding FontWeight, Mode=TwoWay}"
+                               Foreground="{Binding Foreground, Mode=TwoWay}"
+                               Background="{Binding Background, Mode=TwoWay}"                               
+                               HorizontalAlignment="{Binding HorizontalAlignment, Mode=TwoWay}"
+                               VerticalAlignment="{Binding VerticalAlignment, Mode=TwoWay}"
+                               VerticalContentAlignment="Center"
+                               HorizontalContentAlignment="Center"
+                               Width="{Binding Width, Mode=TwoWay}"
+                               Height="{Binding Height, Mode=TwoWay}"
                                />
                         <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
                     </StackPanel>

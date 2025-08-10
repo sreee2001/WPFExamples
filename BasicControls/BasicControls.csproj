@@ -52,6 +52,7 @@
     <Compile Include="BasicControls.cs" />
     <Compile Include="Models\LabelExample.cs" />
     <Compile Include="ViewModels\LabelExampleViewModel.cs" />
+    <Compile Include="ViewModels\LabelPropertyValuesCollection.cs" />
     <Compile Include="Views\LabelExampleView.xaml.cs">
       <DependentUpon>LabelExampleView.xaml</DependentUpon>
     </Compile>
