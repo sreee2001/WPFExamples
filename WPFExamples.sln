@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Components_Demo", "WPF_Components_Demo\WPF_Components_Demo.csproj", "{52D85E1A-C074-4C14-8173-02253A34A855}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Infrastructure", "00-Infrastructure", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Demo", "01-Demo", "{127E404F-392D-4BDC-AD87-964AED4129BC}"
+	ProjectSection(SolutionItems) = preProject
+		Images\open_in_new_24dp_1F1F1F.png = Images\open_in_new_24dp_1F1F1F.png
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Addons", "02-Addons", "{2AF6633F-1579-4F9D-8EE9-D105483723CD}"
 EndProject

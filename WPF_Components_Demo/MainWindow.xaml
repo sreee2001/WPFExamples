@@ -24,22 +24,23 @@
                     <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
                 </Style>
             </TreeView.ItemContainerStyle>
-            <TreeView.ItemTemplate>
-                <HierarchicalDataTemplate ItemsSource="{Binding SubTopics}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:TopicViewModel}" ItemsSource="{Binding SubTopics}">
                     <StackPanel>
                         <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
                         <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
                     </StackPanel>
                 </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-            <TreeView.Resources>
                 <DataTemplate DataType="{x:Type local:SubTopicViewModel}">
-                    <StackPanel>
-                        <TextBlock Text="{Binding Title}">
-                            <TextBlock.InputBindings>
-                                <MouseBinding Gesture="LeftClick" Command="{Binding LaunchDemoCommand}" />
-                            </TextBlock.InputBindings>
-                        </TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" FontSize="16">
+                                <TextBlock.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding LaunchDemoCommand}" />
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+                            <Image Source="/Resources/Images/open_in_new_24dp_1F1F1F.png" Width="16" Height="16" Margin="5,0,0,0" VerticalAlignment="Center" />
+                        </StackPanel>
                         <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
                     </StackPanel>
                 </DataTemplate>
