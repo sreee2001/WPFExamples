@@ -1,10 +1,7 @@
 ﻿using Feature.Infrastructure.AbstractImplementation;
 using Feature.Infrastructure.Core;
 using Feature.Infrastructure.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
 
 namespace BasicControls
 {
