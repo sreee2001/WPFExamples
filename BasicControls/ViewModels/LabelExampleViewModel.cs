@@ -26,10 +26,9 @@ namespace BasicControls.ViewModels
             // Initialize the collection with some sample data
             LabelSamples = new ObservableCollection<LabelExample>
             {
-                new LabelExample("Sample Text 1", "Arial", 12, true, false, false, false),
-                new LabelExample("Sample Text 2", "Times New Roman", 14, false, true, true, false),
-                new LabelExample("Sample Text 3", "Courier New", 16, true, true, false, true),
-                new LabelExample("Sample Text 4", "Verdana", 18, false, false, true, false)
+                new LabelExample("Sample Text 1", "Arial", 12, "Normal", "Black", "White", "Left", "Top", 200, 50),
+                new LabelExample("Sample Text 2", "Verdana", 14, "Bold", "Blue", "LightGray", "Center", "Center", 250, 60),
+                new LabelExample("Sample Text 3", "Tahoma", 16, "Italic", "Green", "Yellow", "Right", "Bottom", 300, 70)
             };
         }
     }

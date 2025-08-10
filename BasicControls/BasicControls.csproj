@@ -52,13 +52,24 @@
     <Compile Include="BasicControls.cs" />
     <Compile Include="Models\LabelExample.cs" />
     <Compile Include="ViewModels\LabelExampleViewModel.cs" />
+    <Compile Include="Views\LabelExampleView.xaml.cs">
+      <DependentUpon>LabelExampleView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Page Include="Views\LabelExampleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

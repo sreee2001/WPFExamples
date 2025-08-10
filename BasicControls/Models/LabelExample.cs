@@ -2,22 +2,29 @@
 {
     internal class LabelExample
     {
-        public string Text { get; set; }
+        public string Content { get; set; }
         public string FontFamily { get; set; }
         public double FontSize { get; set; }
-        public bool IsBold { get; set; }
-        public bool IsItalic { get; set; }
-        public bool IsUnderline { get; set; }
-        public bool IsStrikethrough { get; set; }
-        public LabelExample(string text, string fontFamily, double fontSize, bool isBold, bool isItalic, bool isUnderline, bool isStrikethrough)
+        public string FontWeight { get; set; }
+        public string Foreground { get; set; }
+        public string Background { get; set; }
+        public string HorizontalAlignment { get; set; }
+        public string VerticalAlignment { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
+
+        public LabelExample(string content, string fontFamily, double fontSize, string fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height)
         {
-            Text = text;
+            Content = content;
             FontFamily = fontFamily;
             FontSize = fontSize;
-            IsBold = isBold;
-            IsItalic = isItalic;
-            IsUnderline = isUnderline;
-            IsStrikethrough = isStrikethrough;
+            FontWeight = fontWeight;
+            Foreground = foreground;
+            Background = background;
+            HorizontalAlignment = horizontalAlignment;
+            VerticalAlignment = verticalAlignment;
+            Width = width;
+            Height = height;
         }
     }
 }

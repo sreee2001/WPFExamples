@@ -35,6 +35,8 @@ namespace BasicControls
         public void LaunchDemoWindow()
         {
             // Logic to launch Label demo window
+            var labelExampleView = new Views.LabelExampleView();
+            labelExampleView.ShowDialog();
         }
     }
 }
