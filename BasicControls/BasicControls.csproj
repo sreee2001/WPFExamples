@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\FeaturesDemo\</OutputPath>
+    <OutputPath>..\bin\Debug\Addons\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\FeaturesDemo\</OutputPath>
+    <OutputPath>..\bin\Release\Addons\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -49,12 +49,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicControls.cs" />
+    <Compile Include="Topics\BasicControlMetaDataKeys.cs" />
+    <Compile Include="Topics\BasicControls.cs" />
+    <Compile Include="LabelTemplatesResourceDictionary.cs" />
     <Compile Include="Models\LabelExample.cs" />
+    <Compile Include="Topics\LabelSubTopic.cs" />
+    <Compile Include="Topics\TextBlockSubTopic.cs" />
     <Compile Include="ViewModels\LabelExampleViewModel.cs" />
+    <Compile Include="ViewModels\LabelIntroductionViewModel.cs" />
     <Compile Include="ViewModels\LabelPropertyValuesCollection.cs" />
     <Compile Include="Views\LabelExampleView.xaml.cs">
       <DependentUpon>LabelExampleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LabelIntroductionView.xaml.cs">
+      <DependentUpon>LabelIntroductionView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +76,14 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\LabelExampleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LabelIntroductionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

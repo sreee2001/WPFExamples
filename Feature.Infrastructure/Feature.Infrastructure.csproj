@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="Core\BrushToColorConverter.cs" />
     <Compile Include="Core\MetaDatakeys.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -45,10 +46,13 @@
     <Compile Include="Core\StaticPropertyValuesAttribute.cs" />
     <Compile Include="Interfaces\IFeatureDemoSubTopic.cs" />
     <Compile Include="Interfaces\IFeatureDemoTopic.cs" />
+    <Compile Include="Interfaces\IIntroductionView.cs" />
     <Compile Include="Interfaces\ISubTopicMetadata.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
   </ItemGroup>

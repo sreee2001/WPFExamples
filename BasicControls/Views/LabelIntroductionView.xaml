@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="BasicControls.Views.LabelIntroductionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BasicControls.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Border Background="#F0F8FF" 
+            BorderBrush="#4682B4" 
+            BorderThickness="1" 
+            CornerRadius="6" 
+            Padding="12" 
+            Margin="10">
+            <StackPanel>
+                <TextBlock
+                    TextWrapping="Wrap"
+                    FontSize="18"
+                    FontWeight="Bold"
+                    FontFamily="Segoe UI"
+                    Foreground="#2E3B4E"
+                    TextAlignment="Center"
+                    Margin="0 0 0 20"
+                    >
+                    <Run Text="Label" FontWeight="Bold" FontSize="20" />
+                </TextBlock>
+                <ItemsControl Margin="10">
+                    <ItemsControl.Items>
+                        <BulletDecorator Margin="0,5,0,5">
+                            <BulletDecorator.Bullet>
+                                <Ellipse Fill="#4682B4" Width="8" Height="8" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock
+                                TextWrapping="Wrap"
+                                FontSize="16"
+                                FontWeight="Normal"
+                                FontFamily="Segoe UI"
+                                Foreground="#2E3B4E"
+                                TextAlignment="Left"
+                                Margin="10 0 10 0"
+                                >
+                                <Run Text="Label controls usually provide information in the user interface (UI). " />
+                            </TextBlock>
+                        </BulletDecorator>
+                        <BulletDecorator Margin="0,5,0,5">
+                            <BulletDecorator.Bullet>
+                                <Ellipse Fill="#4682B4" Width="8" Height="8" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock
+                                TextWrapping="Wrap"
+                                FontSize="16"
+                                FontWeight="Normal"
+                                FontFamily="Segoe UI"
+                                Foreground="#2E3B4E"
+                                TextAlignment="Left"
+                                Margin="10 0 10 0"
+                                >
+                                <Run Text="Historically, a Label has contained only text, but because the Label that ships with Windows Presentation Foundation (WPF) is a ContentControl, it can contain either text or a UIElement." />
+                            </TextBlock>
+                        </BulletDecorator>
+                        <BulletDecorator Margin="0,5,0,5">
+                            <BulletDecorator.Bullet>
+                                <Ellipse Fill="#4682B4" Width="8" Height="8" VerticalAlignment="Center"/>
+                            </BulletDecorator.Bullet>
+                            <TextBlock
+                                TextWrapping="Wrap"
+                                FontSize="16"
+                                FontWeight="Normal"
+                                FontFamily="Segoe UI"
+                                Foreground="#2E3B4E"
+                                TextAlignment="Left"
+                                Margin="10 0 10 0"
+                                >
+                                <Run Text="The Label control is a versatile control that can display text, images, or other UI elements. It is commonly used to provide descriptive text for other controls, such as TextBox or ComboBox." />
+                            </TextBlock>
+                        </BulletDecorator>
+                    </ItemsControl.Items>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+        <TextBlock Text="Few Samples of Labels are provided below" FontSize="16" HorizontalAlignment="Center"/>
+        <Border Background="#F0F8FF" 
+            BorderBrush="#4682B4" 
+            BorderThickness="1" 
+            CornerRadius="6" 
+            Padding="12" 
+            Margin="10">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Simple Label" Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Label with Image" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resources/Images/open_in_new_24dp_1F1F1F.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                                <TextBlock Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
+                <Label Content="Label with TextBlock" Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
+                <Label Content="Label with Button" Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding}" Width="100" Height="30" Margin="5"/>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
+            </Grid>
+        </Border>
+        <Button Command="{Binding SelectedSubTopicViewModel.LaunchDemoCommand}">
+            Try it out
+        </Button>
+    </StackPanel>
+</UserControl>

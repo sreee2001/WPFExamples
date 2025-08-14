@@ -31,7 +31,7 @@ namespace Feature.Infrastructure.Core
                     var genericType = prop.PropertyType.GetGenericArguments().FirstOrDefault();
                     var values = attr.SourceType
                         .GetProperties(BindingFlags.Public | BindingFlags.Static)
-                        .Where(p => p.PropertyType == genericType)
+                        //.Where(p => p.PropertyType == genericType) I am testin this 
                         .Select(p => p.GetValue(null))
                         .ToList();
 

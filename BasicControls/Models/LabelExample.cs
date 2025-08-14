@@ -1,5 +1,5 @@
 ﻿using Infrastructure.Base;
-using System.Windows;
+using System.Windows.Media;
 
 namespace BasicControls.Models
 {
@@ -12,8 +12,8 @@ namespace BasicControls.Models
             set => SetField(ref content, value);
         }
 
-        private string fontFamily;
-        public string FontFamily
+        private System.Windows.Media.FontFamily fontFamily;
+        public System.Windows.Media.FontFamily FontFamily
         {
             get => fontFamily;
             set => SetField(ref fontFamily, value);
@@ -26,8 +26,8 @@ namespace BasicControls.Models
             set => SetField(ref fontSize, value);
         }
 
-        private FontWeight fontWeight;
-        public FontWeight FontWeight
+        private System.Windows.FontWeight fontWeight;
+        public System.Windows.FontWeight FontWeight
         {
             get => fontWeight;
             set => SetField(ref fontWeight, value);
@@ -69,13 +69,28 @@ namespace BasicControls.Models
         }
 
         private int height;
+
         public int Height
         {
             get => height;
             set => SetField(ref height, value);
         }
 
-        public LabelExample(string content, string fontFamily, double fontSize, FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height)
+        private Brush borderBrush;
+        public System.Windows.Media.Brush BorderBrush 
+        {
+            get => borderBrush; 
+            set => SetField(ref borderBrush , value); 
+        }
+
+        private int borderThickness;
+        public int BorderThickness
+        {
+            get => borderThickness;
+            set => SetField(ref borderThickness, value);
+        }
+
+        public LabelExample(string content, System.Windows.Media.FontFamily fontFamily, double fontSize, System.Windows.FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height, Brush borderBrush, int borderThickness)
         {
             Content = content;
             FontFamily = fontFamily;
@@ -87,6 +102,8 @@ namespace BasicControls.Models
             VerticalAlignment = verticalAlignment;
             Width = width;
             Height = height;
+            BorderBrush = borderBrush;
+            BorderThickness = borderThickness;
         }
     }
 }
