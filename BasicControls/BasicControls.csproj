@@ -49,18 +49,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Label\LabelIntroductionViewModel.cs" />
+    <Compile Include="TextBlock\TextBlockExample.cs" />
     <Compile Include="Topics\BasicControlMetaDataKeys.cs" />
     <Compile Include="Topics\BasicControls.cs" />
-    <Compile Include="LabelTemplatesResourceDictionary.cs" />
-    <Compile Include="Models\LabelExample.cs" />
-    <Compile Include="Topics\LabelSubTopic.cs" />
-    <Compile Include="Topics\TextBlockSubTopic.cs" />
-    <Compile Include="ViewModels\LabelExampleViewModel.cs" />
-    <Compile Include="ViewModels\LabelPropertyValuesCollection.cs" />
-    <Compile Include="Views\LabelExampleView.xaml.cs">
+    <Compile Include="Resources\LabelTemplatesResourceDictionary.cs" />
+    <Compile Include="Label\LabelExample.cs" />
+    <Compile Include="Label\LabelSubTopic.cs" />
+    <Compile Include="TextBlock\TextBlockSubTopic.cs" />
+    <Compile Include="Label\LabelExampleViewModel.cs" />
+    <Compile Include="Label\LabelPropertyValuesCollection.cs" />
+    <Compile Include="Label\LabelExampleView.xaml.cs">
       <DependentUpon>LabelExampleView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\LabelIntroductionView.xaml.cs">
+    <Compile Include="Label\LabelIntroductionView.xaml.cs">
       <DependentUpon>LabelIntroductionView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -74,15 +76,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Views\LabelExampleView.xaml">
+    <Page Include="Label\LabelExampleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LabelIntroductionView.xaml">
+    <Page Include="Label\LabelIntroductionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DataTemplates.xaml">
+    <Page Include="Resources\DataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

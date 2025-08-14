@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Base;
 using System.Windows.Media;
 
-namespace BasicControls.Models
+namespace BasicControls.Label
 {
     internal class LabelExample : PropertyChangedBase
     {
@@ -12,8 +12,8 @@ namespace BasicControls.Models
             set => SetField(ref content, value);
         }
 
-        private System.Windows.Media.FontFamily fontFamily;
-        public System.Windows.Media.FontFamily FontFamily
+        private FontFamily fontFamily;
+        public FontFamily FontFamily
         {
             get => fontFamily;
             set => SetField(ref fontFamily, value);
@@ -77,7 +77,7 @@ namespace BasicControls.Models
         }
 
         private Brush borderBrush;
-        public System.Windows.Media.Brush BorderBrush 
+        public Brush BorderBrush 
         {
             get => borderBrush; 
             set => SetField(ref borderBrush , value); 
@@ -90,7 +90,7 @@ namespace BasicControls.Models
             set => SetField(ref borderThickness, value);
         }
 
-        public LabelExample(string content, System.Windows.Media.FontFamily fontFamily, double fontSize, System.Windows.FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height, Brush borderBrush, int borderThickness)
+        public LabelExample(string content, FontFamily fontFamily, double fontSize, System.Windows.FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height, Brush borderBrush, int borderThickness)
         {
             Content = content;
             FontFamily = fontFamily;

@@ -9,7 +9,7 @@ namespace BasicControls.Views
     {
         public DataTemplatesResourceDictionary()
         {
-            Source = new System.Uri("/BasicControls;component/Views/DataTemplates.xaml", System.UriKind.RelativeOrAbsolute);
+            Source = new System.Uri("/BasicControls;component/Resources/DataTemplates.xaml", System.UriKind.RelativeOrAbsolute);
         }
     }
 }

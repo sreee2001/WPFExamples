@@ -1,6 +1,6 @@
 ﻿namespace Feature.Infrastructure.Interfaces
 {
-    public interface IDemonstrationView
+    public interface IDemonstrationViewModel
     {
     }
 }

@@ -1,12 +1,17 @@
-﻿using BasicControls.Models;
+﻿using BasicControls.Topics;
+using Feature.Infrastructure.Core;
+using Feature.Infrastructure.Interfaces;
 using Infrastructure.Base;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Media;
 
-namespace BasicControls.ViewModels
+namespace BasicControls.Label
 {
-    internal class LabelExampleViewModel : PropertyChangedBase
+    [Export(typeof(IDemonstrationViewModel))]
+    [ExportMetadata(MetaDataKeys.Title, AddonMetadataKeys.LabelControlTitle)]
+    internal class LabelExampleViewModel : PropertyChangedBase, IDemonstrationViewModel
     {
         private ObservableCollection<LabelExample> labelSamples;
         private LabelPropertyValuesCollection propertyValuesCollection;
@@ -27,7 +32,6 @@ namespace BasicControls.ViewModels
         {
             LabelSamples = new ObservableCollection<LabelExample>();
             PropertyValuesCollection = new LabelPropertyValuesCollection();
-
 
             PopulateLabelSamples();
         }

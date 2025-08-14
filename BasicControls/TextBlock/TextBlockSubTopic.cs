@@ -1,14 +1,14 @@
-﻿using BasicControls.Views;
+﻿using BasicControls.Topics;
 using Feature.Infrastructure.Core;
 using Feature.Infrastructure.Interfaces;
 using System.ComponentModel.Composition;
 
-namespace BasicControls.Topics
+namespace BasicControls.TextBlock
 {
     [Export(typeof(IFeatureDemoSubTopic))]
     [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.BasicControlsTitle)]
-    public class LabelSubTopic : IFeatureDemoSubTopic
+    public class TextBlockSubTopic : IFeatureDemoSubTopic
     {
-        public string Title => AddonMetadataKeys.LabelControlTitle;
+        public string Title => AddonMetadataKeys.TextBlockControlTitle;
     }
 }

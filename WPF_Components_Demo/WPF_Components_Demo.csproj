@@ -56,6 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\DemoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -66,6 +70,9 @@
     </Compile>
     <Compile Include="ViewModels\SubTopicViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
+    <Compile Include="Views\DemoWindow.xaml.cs">
+      <DependentUpon>DemoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -100,6 +107,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DotnetFrameworkReferenceLibraries\Infrastructure.UI\Infrastructure.UI.csproj">
+      <Project>{06566ac4-6904-4aa0-af8d-96700f5190a1}</Project>
+      <Name>Infrastructure.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DotnetFrameworkReferenceLibraries\Infrastructure\Infrastructure.csproj">
       <Project>{2EE34026-4CD5-47A2-95C7-4EB3D19B7352}</Project>
       <Name>Infrastructure</Name>

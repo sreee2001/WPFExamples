@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.Windows;
 
@@ -40,7 +39,6 @@ namespace WPF_Components_Demo.Views
             if (viewModel != null && e.NewValue is SubTopicViewModel subTopicViewModel)
             {
                 viewModel.SelectedSubTopicViewModel = subTopicViewModel;
-                //subTopic.LaunchDemoCommand.Execute(null);
             }
         }
     }

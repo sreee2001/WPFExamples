@@ -2,14 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Windows.Media;
 
-namespace BasicControls.ViewModels
+namespace BasicControls.Label
 {
     internal class LabelPropertyValuesCollection : PropertyValuesCollection
     {
-
         [SetSourceForPropertyValues(typeof(System.Windows.FontWeights))]
         public ObservableCollection<System.Windows.FontWeight> FontWeightsCollection { get; private set; }
-
 
         [SetSourceForPropertyValues(typeof(System.Windows.Media.Colors))]
         public ObservableCollection<System.Windows.Media.Color> BorderBrushColorsCollection { get; private set; }
