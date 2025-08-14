@@ -6,9 +6,9 @@ using System.Reflection;
 
 namespace Feature.Infrastructure.Core
 {
-    public abstract class PropertyValuesCollection
+    public abstract class PropertyValuesCollectionBase
     {
-        public PropertyValuesCollection()
+        public PropertyValuesCollectionBase()
         {
             PopulateSourcePropertyValues();
         }

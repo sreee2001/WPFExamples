@@ -50,17 +50,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Label\LabelIntroductionViewModel.cs" />
-    <Compile Include="TextBlock\TextBlockExample.cs" />
+    <Compile Include="TextBlock\TextBlockDemoView.xaml.cs">
+      <DependentUpon>TextBlockDemoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBlock\TextBlockDemoViewModel.cs" />
+    <Compile Include="TextBlock\TextBlockIntroductionView.xaml.cs">
+      <DependentUpon>TextBlockIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TextBlock\TextBlockIntroductionViewModel.cs" />
+    <Compile Include="TextBlock\TextBlockProperties.cs" />
     <Compile Include="Topics\BasicControlMetaDataKeys.cs" />
     <Compile Include="Topics\BasicControls.cs" />
-    <Compile Include="Resources\LabelTemplatesResourceDictionary.cs" />
-    <Compile Include="Label\LabelExample.cs" />
+    <Compile Include="Resources\DataTemplatesResourceDictionary.cs" />
+    <Compile Include="Label\LabelProperties.cs" />
     <Compile Include="Label\LabelSubTopic.cs" />
     <Compile Include="TextBlock\TextBlockSubTopic.cs" />
-    <Compile Include="Label\LabelExampleViewModel.cs" />
-    <Compile Include="Label\LabelPropertyValuesCollection.cs" />
-    <Compile Include="Label\LabelExampleView.xaml.cs">
-      <DependentUpon>LabelExampleView.xaml</DependentUpon>
+    <Compile Include="Label\LabelDemoViewModel.cs" />
+    <Compile Include="Resources\PropertyValuesCollection.cs" />
+    <Compile Include="Label\LabelDemoView.cs">
+      <DependentUpon>LabelDemoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Label\LabelIntroductionView.xaml.cs">
       <DependentUpon>LabelIntroductionView.xaml</DependentUpon>
@@ -76,7 +84,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Label\LabelExampleView.xaml">
+    <Page Include="Label\LabelDemoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -85,6 +93,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextBlock\TextBlockDemoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TextBlock\TextBlockIntroductionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,10 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:label="clr-namespace:BasicControls.Label"
                     xmlns:textBlock="clr-namespace:BasicControls.TextBlock">
-    <DataTemplate DataType="{x:Type label:LabelExampleViewModel}">
-        <label:LabelExampleView />
+    <DataTemplate DataType="{x:Type label:LabelDemoViewModel}">
+        <label:LabelDemoView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type label:LabelIntroductionViewModel}">
         <label:LabelIntroductionView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type textBlock:TextBlockDemoViewModel}">
+        <textBlock:TextBlockDemoView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type textBlock:TextBlockIntroductionViewModel}">
+        <textBlock:TextBlockIntroductionView />
     </DataTemplate>
 </ResourceDictionary>

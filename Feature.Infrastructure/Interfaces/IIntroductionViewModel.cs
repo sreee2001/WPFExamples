@@ -1,6 +1,6 @@
 ﻿namespace Feature.Infrastructure.Interfaces
 {
-    public interface IIntroductionViewModel
+    public interface IIntroductionViewModel : IHaveTitle
     {
     }
 }

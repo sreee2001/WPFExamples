@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace BasicControls.Label
 {
-    internal class LabelExample : PropertyChangedBase
+    internal class LabelProperties : PropertyChangedBase
     {
         private string content;
         public string Content
@@ -90,7 +90,7 @@ namespace BasicControls.Label
             set => SetField(ref borderThickness, value);
         }
 
-        public LabelExample(string content, FontFamily fontFamily, double fontSize, System.Windows.FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height, Brush borderBrush, int borderThickness)
+        public LabelProperties(string content, FontFamily fontFamily, double fontSize, System.Windows.FontWeight fontWeight, string foreground, string background, string horizontalAlignment, string verticalAlignment, int width, int height, Brush borderBrush, int borderThickness)
         {
             Content = content;
             FontFamily = fontFamily;

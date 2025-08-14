@@ -37,6 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Compile Include="AbstractImplementation\DemoViewModel.cs" />
+    <Compile Include="AbstractImplementation\IntroductionViewModel.cs" />
     <Compile Include="Core\BrushToColorConverter.cs" />
     <Compile Include="Core\MetaDatakeys.cs" />
   </ItemGroup>
@@ -44,7 +46,7 @@
     <Compile Include="AbstractImplementation\FeatureDemoTopic.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Core\SetSourceForPropertyValuesAttribute.cs" />
-    <Compile Include="Core\StaticPropertyValuesAttribute.cs" />
+    <Compile Include="Core\PropertyValuesCollectionBase.cs" />
     <Compile Include="Interfaces\IDemonstrationViewModel.cs" />
     <Compile Include="Interfaces\IFeatureDemoSubTopic.cs" />
     <Compile Include="Interfaces\IFeatureDemoTopic.cs" />
@@ -52,7 +54,12 @@
     <Compile Include="Interfaces\IIntroductionViewModel.cs" />
     <Compile Include="Interfaces\IHaveTopicName.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetFrameworkReferenceLibraries\Infrastructure\Infrastructure.csproj">
+      <Project>{2EE34026-4CD5-47A2-95C7-4EB3D19B7352}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
