@@ -1,4 +1,5 @@
-﻿using BasicControls.Resources;
+﻿using BasicControls.Common;
+using BasicControls.Resources;
 using BasicControls.Topics;
 using Feature.Infrastructure.AbstractImplementation;
 using Feature.Infrastructure.Core;
@@ -11,35 +12,16 @@ namespace BasicControls.TextBlock
 {
     [Export(typeof(IDemonstrationViewModel))]
     [ExportMetadata(MetaDataKeys.Title, AddonMetadataKeys.TextBlockControlTitle)]
-    internal class TextBlockDemoViewModel : DemoViewModel<TextBlockProperties>
+    internal class TextBlockDemoViewModel : ControlDemoViewModel<TextBlockProperties>
     {
-        private PropertyValuesCollection propertyValuesCollection;
-
-        [Import]
-        public PropertyValuesCollection PropertyValuesCollection
-        {
-            get => propertyValuesCollection;
-            set => SetField(ref propertyValuesCollection, value);
-        }
         public TextBlockDemoViewModel()
         {
-            //PropertyValuesCollection = new PropertyValuesCollection();
+            Header = "Samples of TextBox control in WPF";
             PopulateTextBlockSamples();
-        }
-
-        private string _header;
-
-        public string Header
-        {
-            get => _header;
-            set => SetField(ref _header, value);
         }
 
         private void PopulateTextBlockSamples()
         {
-            //Header = "TextBlock Control Demonstration";
-            Header = "Different Label Styles in WPF";            
-
             // Initialize the collection with some sample data
             Samples = new ObservableCollection<TextBlockProperties>
             {

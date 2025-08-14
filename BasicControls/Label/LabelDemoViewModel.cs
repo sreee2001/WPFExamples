@@ -1,4 +1,5 @@
-﻿using BasicControls.Resources;
+﻿using BasicControls.Common;
+using BasicControls.Resources;
 using BasicControls.Topics;
 using Feature.Infrastructure.AbstractImplementation;
 using Feature.Infrastructure.Core;
@@ -13,20 +14,11 @@ namespace BasicControls.Label
 {
     [Export(typeof(IDemonstrationViewModel))]
     [ExportMetadata(MetaDataKeys.Title, AddonMetadataKeys.LabelControlTitle)]
-    internal class LabelDemoViewModel : DemoViewModel<LabelProperties>
+    internal class LabelDemoViewModel : ControlDemoViewModel<LabelProperties>
     {
-        private PropertyValuesCollection propertyValuesCollection;
-
-        [Import]
-        public PropertyValuesCollection PropertyValuesCollection
-        {
-            get => propertyValuesCollection;
-            set => SetField(ref propertyValuesCollection , value);
-        }
-
         public LabelDemoViewModel()
         {
-            //PropertyValuesCollection = new PropertyValuesCollection();
+            Header = "Samples of Label control in WPF";
             PopulateSamples();
         }
 
