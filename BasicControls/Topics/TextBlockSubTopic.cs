@@ -9,10 +9,5 @@ namespace BasicControls.Topics
     public class TextBlockSubTopic : IFeatureDemoSubTopic
     {
         public string Title => AddonMetadataKeys.TextBlockControlTitle;
-
-        //public void LaunchDemoWindow()
-        //{
-        //    // Logic to launch TextBlock demo window
-        //}
     }
 }

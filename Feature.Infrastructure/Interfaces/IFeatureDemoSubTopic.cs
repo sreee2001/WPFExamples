@@ -2,6 +2,5 @@
 {
     public interface IFeatureDemoSubTopic : IHaveTitle
     {
-        //void LaunchDemoWindow();
     }
 }
