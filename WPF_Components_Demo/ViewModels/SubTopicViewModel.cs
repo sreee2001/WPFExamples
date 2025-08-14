@@ -5,6 +5,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using Feature.Infrastructure.Core;
 using Feature.Infrastructure.Interfaces;
 
 namespace WPF_Components_Demo

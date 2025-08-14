@@ -5,9 +5,9 @@ namespace BasicControls.Views
 {
     [Export(typeof(ResourceDictionary))]
     [ExportMetadata("DictionaryName", "DataTemplates")]
-    public class LabelTemplatesResourceDictionary : ResourceDictionary
+    public class DataTemplatesResourceDictionary : ResourceDictionary
     {
-        public LabelTemplatesResourceDictionary()
+        public DataTemplatesResourceDictionary()
         {
             Source = new System.Uri("/BasicControls;component/Views/DataTemplates.xaml", System.UriKind.RelativeOrAbsolute);
         }
