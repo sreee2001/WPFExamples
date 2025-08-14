@@ -46,6 +46,7 @@
     <Compile Include="Core\StaticPropertyValuesAttribute.cs" />
     <Compile Include="Interfaces\IFeatureDemoSubTopic.cs" />
     <Compile Include="Interfaces\IFeatureDemoTopic.cs" />
+    <Compile Include="Interfaces\IHaveTitle.cs" />
     <Compile Include="Interfaces\IIntroductionView.cs" />
     <Compile Include="Interfaces\IHaveTopicName.cs" />
   </ItemGroup>

@@ -2,9 +2,8 @@
 
 namespace Feature.Infrastructure.Interfaces
 {
-    public interface IFeatureDemoTopic
+    public interface IFeatureDemoTopic : IHaveTitle
     {
-        string Title { get; }
         IEnumerable<IFeatureDemoSubTopic> SubTopics { get; }
     }
 }

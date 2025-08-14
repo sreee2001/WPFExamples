@@ -4,9 +4,4 @@
     {
         string TopicName { get; }
     }
-
-    public interface IHaveTitle
-    {
-        string Title { get; }
-    }
 }

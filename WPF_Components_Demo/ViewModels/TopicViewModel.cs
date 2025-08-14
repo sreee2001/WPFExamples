@@ -1,4 +1,7 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.ComponentModel.Composition;
+using System.Windows;
 using Feature.Infrastructure.Interfaces;
 
 namespace WPF_Components_Demo
@@ -13,7 +16,9 @@ namespace WPF_Components_Demo
             Title = topic.Title;
             foreach (var sub in topic.SubTopics)
             {
-                SubTopicViewModels.Add(new SubTopicViewModel(sub));
+                SubTopicViewModel viewModel = new SubTopicViewModel(sub);
+                ((App)Application.Current).Container.ComposeParts(viewModel);
+                SubTopicViewModels.Add(viewModel);
             }
         }
     }

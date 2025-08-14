@@ -10,9 +10,9 @@ namespace BasicControls.Topics
     {
         public string Title => AddonMetadataKeys.TextBlockControlTitle;
 
-        public void LaunchDemoWindow()
-        {
-            // Logic to launch TextBlock demo window
-        }
+        //public void LaunchDemoWindow()
+        //{
+        //    // Logic to launch TextBlock demo window
+        //}
     }
 }

@@ -3,4 +3,8 @@
     public interface IIntroductionView
     {
     }
+
+    public interface IDemonstrationView
+    {
+    }
 }
