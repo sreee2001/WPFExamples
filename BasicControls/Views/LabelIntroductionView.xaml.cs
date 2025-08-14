@@ -1,4 +1,6 @@
-﻿using Feature.Infrastructure.Interfaces;
+﻿using BasicControls.Topics;
+using Feature.Infrastructure.Core;
+using Feature.Infrastructure.Interfaces;
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
 
@@ -8,7 +10,7 @@ namespace BasicControls.Views
     /// Interaction logic for LabelIntroductionView.xaml
     /// </summary>
     [Export(typeof(IIntroductionView))]
-    [ExportMetadata("Title", "Label Samples")]
+    [ExportMetadata(MetaDataKeys.Title, AddonMetadataKeys.LabelControlTitle)]
     public partial class LabelIntroductionView : UserControl, IIntroductionView
     {
         public LabelIntroductionView()

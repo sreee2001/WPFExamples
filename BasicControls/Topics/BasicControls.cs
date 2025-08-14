@@ -7,6 +7,6 @@ namespace BasicControls.Topics
     [Export(typeof(IFeatureDemoTopic))]
     public class BasicControls : FeatureDemoTopic
     {
-        public override string Title => BasicControlMetaDataKeys.Title;
+        public override string Title => AddonMetadataKeys.BasicControlsTitle;
     }
 }

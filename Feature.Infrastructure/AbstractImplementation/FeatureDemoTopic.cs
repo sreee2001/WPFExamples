@@ -11,7 +11,7 @@ namespace Feature.Infrastructure.AbstractImplementation
         public abstract string Title { get; }
         
         [ImportMany]
-        public IEnumerable<Lazy<IFeatureDemoSubTopic, ISubTopicMetadata>> AllSubTopics { get; set; }
+        public IEnumerable<Lazy<IFeatureDemoSubTopic, IHaveTopicName>> AllSubTopics { get; set; }
 
         public IEnumerable<IFeatureDemoSubTopic> SubTopics =>
             AllSubTopics.Where(x => x.Metadata.TopicName == Title).Select(x => x.Value);

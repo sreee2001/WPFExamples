@@ -5,26 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Components_Demo"
         mc:Ignorable="d"
-        Title="Welcome To WPF Features Demonstration" Height="600" Width="800">
-    <!--<Window.DataContext>
-        <local:MainWindowViewModel />
-    </Window.DataContext>-->
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type local:SubTopicViewModel}">
-            <UserControl>
-                <!--<ContentControl Content="{Binding}">
-                    <ContentControl.Resources>
-                        <DataTemplate DataType="{x:Type local:LabelIntroductionViewModel}">
-                            <local:LabelIntroductionView />
-                        </DataTemplate>
-                        <DataTemplate DataType="{x:Type local:LabelExampleViewModel}">
-                            <local:LabelExampleView />
-                        </DataTemplate>
-                    </ContentControl.Resources>
-                </ContentControl>-->
-            </UserControl>
-        </DataTemplate>
-    </Window.Resources>
+        Title="Welcome To WPF Features Demonstration" Height="800" Width="1200">
+
     <Border Background="#F0F8FF" 
                 BorderBrush="#4682B4" 
                 BorderThickness="1" 
@@ -69,7 +51,7 @@
                         </Style>
                     </TreeView.ItemContainerStyle>
                     <TreeView.Resources>
-                        <HierarchicalDataTemplate DataType="{x:Type local:TopicViewModel}" ItemsSource="{Binding SubTopics}">
+                        <HierarchicalDataTemplate DataType="{x:Type local:TopicViewModel}" ItemsSource="{Binding SubTopicViewModels}">
                             <StackPanel>
                                 <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="18"/>
                                 <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
@@ -81,24 +63,6 @@
                                 <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
                             </StackPanel>
                         </DataTemplate>
-
-                        <!--<DataTemplate DataType="{x:Type local:SubTopicViewModel}">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Title}" FontSize="16">
-                                <TextBlock.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding SetIntroductionPageCommand}" />
-                                </TextBlock.InputBindings>
-                            </TextBlock>
-                            <Image Source="/Resources/Images/open_in_new_24dp_1F1F1F.png" Width="16" Height="16" Margin="5,0,0,0" VerticalAlignment="Center" >
-                                <Image.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding LaunchDemoCommand}" />
-                                </Image.InputBindings>
-                            </Image>
-                        </StackPanel>
-                        <Separator Background="#FFD3D3D3" Height="1" Margin="0,2,0,2" />
-                    </StackPanel>
-                </DataTemplate>-->
                     </TreeView.Resources>
                 </TreeView>
             </Border>
@@ -110,20 +74,13 @@
                     Margin="10"
                     DockPanel.Dock="Top">
 
+                <ScrollViewer>
                 <ContentControl Content="{Binding SelectedIntroductionView}" 
                         Margin="10" 
                         DockPanel.Dock="Bottom" 
                         HorizontalAlignment="Stretch" 
-                        VerticalAlignment="Stretch">
-                    <!--<ContentControl.Resources>
-                <DataTemplate DataType="{x:Type local:LabelIntroductionViewModel}">
-                    <local:LabelIntroductionView />
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type local:LabelExampleViewModel}">
-                    <local:LabelExampleView />
-                </DataTemplate>
-            </ContentControl.Resources>-->
-                </ContentControl>
+                        VerticalAlignment="Stretch" />
+                </ScrollViewer>
             </Border>
         </DockPanel>
     </Border>

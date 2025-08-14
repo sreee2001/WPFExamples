@@ -5,18 +5,14 @@ using System.ComponentModel.Composition;
 namespace BasicControls.Topics
 {
     [Export(typeof(IFeatureDemoSubTopic))]
-    [ExportMetadata(MetaDataKeys.TopicName, BasicControlMetaDataKeys.Title)]
+    [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.BasicControlsTitle)]
     public class TextBlockSubTopic : IFeatureDemoSubTopic
     {
-        public string Title => "TextBlock Samples";
+        public string Title => AddonMetadataKeys.TextBlockControlTitle;
+
         public void LaunchDemoWindow()
         {
             // Logic to launch TextBlock demo window
-        }
-        public IIntroductionView GetIntroductionView()
-        {
-            // Logic to get the introduction page for TextBlock samples
-            return null;
         }
     }
 }

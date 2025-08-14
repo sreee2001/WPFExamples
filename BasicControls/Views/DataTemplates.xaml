@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewModels="clr-namespace:BasicControls.ViewModels"
                     xmlns:views="clr-namespace:BasicControls.Views">
-    <DataTemplate DataType="{x:Type viewModels:LabelExampleViewModel}">
+    <!--<DataTemplate DataType="{x:Type viewModels:LabelExampleViewModel}">
         <views:LabelExampleView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:LabelIntroductionViewModel}">
         <views:LabelIntroductionView />
-    </DataTemplate>
+    </DataTemplate>-->
 </ResourceDictionary>

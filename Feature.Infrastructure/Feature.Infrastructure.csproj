@@ -47,7 +47,7 @@
     <Compile Include="Interfaces\IFeatureDemoSubTopic.cs" />
     <Compile Include="Interfaces\IFeatureDemoTopic.cs" />
     <Compile Include="Interfaces\IIntroductionView.cs" />
-    <Compile Include="Interfaces\ISubTopicMetadata.cs" />
+    <Compile Include="Interfaces\IHaveTopicName.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

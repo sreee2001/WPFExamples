@@ -11,7 +11,7 @@
             BorderBrush="#4682B4" 
             BorderThickness="1" 
             CornerRadius="6" 
-            Padding="12" 
+            Padding="10" 
             Margin="10">
             <StackPanel>
                 <TextBlock
@@ -21,7 +21,7 @@
                     FontFamily="Segoe UI"
                     Foreground="#2E3B4E"
                     TextAlignment="Center"
-                    Margin="0 0 0 20"
+                    Margin="0 0 0 10"
                     >
                     <Run Text="Label" FontWeight="Bold" FontSize="20" />
                 </TextBlock>
@@ -33,7 +33,7 @@
                             </BulletDecorator.Bullet>
                             <TextBlock
                                 TextWrapping="Wrap"
-                                FontSize="16"
+                                FontSize="14"
                                 FontWeight="Normal"
                                 FontFamily="Segoe UI"
                                 Foreground="#2E3B4E"
@@ -49,7 +49,7 @@
                             </BulletDecorator.Bullet>
                             <TextBlock
                                 TextWrapping="Wrap"
-                                FontSize="16"
+                                FontSize="14"
                                 FontWeight="Normal"
                                 FontFamily="Segoe UI"
                                 Foreground="#2E3B4E"
@@ -65,7 +65,7 @@
                             </BulletDecorator.Bullet>
                             <TextBlock
                                 TextWrapping="Wrap"
-                                FontSize="16"
+                                FontSize="14"
                                 FontWeight="Normal"
                                 FontFamily="Segoe UI"
                                 Foreground="#2E3B4E"

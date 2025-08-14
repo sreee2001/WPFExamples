@@ -1,25 +1,21 @@
-﻿using Feature.Infrastructure.Core;
+﻿using BasicControls.Views;
+using Feature.Infrastructure.Core;
 using Feature.Infrastructure.Interfaces;
 using System.ComponentModel.Composition;
 
 namespace BasicControls.Topics
 {
     [Export(typeof(IFeatureDemoSubTopic))]
-    [ExportMetadata(MetaDataKeys.TopicName, BasicControlMetaDataKeys.Title)]
+    [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.BasicControlsTitle)]
     public class LabelSubTopic : IFeatureDemoSubTopic
     {
-        public string Title => "Label Samples";
+        public string Title => AddonMetadataKeys.LabelControlTitle;
+
         public void LaunchDemoWindow()
         {
             // Logic to launch Label demo window
-            var labelExampleView = new Views.LabelExampleView();
+            var labelExampleView = new LabelExampleView();
             labelExampleView.ShowDialog();
-        }
-        public IIntroductionView GetIntroductionView()
-        {
-            // Logic to set the introduction page for Label samples
-            var introductionView = new Views.LabelIntroductionView();
-            return introductionView;
         }
     }
 }
