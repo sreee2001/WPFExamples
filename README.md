@@ -101,9 +101,9 @@ WPFExamples/
 To add a new demo for a feature, for example a demo for SubTopic `Border` under Topic `Additional Controls`, follow these steps:
 
 1. **Reuse an existing Addin Project** created earlier for `Additional Controls` OR
-2. **Create a new .Net Framework WPF Class Library. Call it `AdditionalControls`
+2. **Create a new .Net Framework WPF Class Library**. Call it `AdditionalControls`
 3. For this example I am assuming the latter
-4. Set its output Directory to `$(SolutionDir)/bin/$(Configuration)/FeaturesDemo`
+4. Set its output Directory to `$(SolutionDir)/bin/$(Configuration)/Addons`
 5. **Add a new FeatureDemoTopic and SubFeatureDemoTopic classes:**
   ```csharp
   // AdditionalControls/BorderExample.cs
