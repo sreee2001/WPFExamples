@@ -49,6 +49,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ControlIntroductionDescriptionView.xaml.cs">
+      <DependentUpon>ControlIntroductionDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ControlIntroductionViewModel.cs" />
     <Compile Include="Common\ControlDemoViewModel.cs" />
     <Compile Include="Label\LabelIntroductionViewModel.cs" />
     <Compile Include="TextBlock\TextBlockDemoView.xaml.cs">
@@ -85,6 +89,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Common\ControlIntroductionDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Label\LabelDemoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
