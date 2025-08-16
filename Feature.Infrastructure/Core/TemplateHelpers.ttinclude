@@ -1,0 +1,62 @@
+﻿ <#+
+    // Helper method to convert PascalCase/camelCase to space-separated string
+    string ToSpacedString(string input)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(
+            input, 
+            "(?<!^)([A-Z])", 
+            " $1"
+        );
+    }
+
+    // Returns the namespace based on the template file's location and a given root namespace
+    string GetNamespace(string rootNamespace)
+    {
+        // Get the directory of the template file
+        string templateDir = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+        // Find the project directory (assumes .csproj is in a parent folder)
+        string projectDir = templateDir;
+        while (!System.IO.Directory.GetFiles(projectDir, "*.csproj").Any())
+        {
+            projectDir = System.IO.Path.GetDirectoryName(projectDir);
+            if (string.IsNullOrEmpty(projectDir)) break;
+        }
+        // Get the relative path from project directory to template directory
+        string relativePath = templateDir.Substring(projectDir.Length).Trim('\\', '/');
+        // Replace directory separators with dots
+        string ns = rootNamespace;
+        if (!string.IsNullOrEmpty(relativePath))
+            ns += "." + relativePath.Replace("\\", ".").Replace("/", ".");
+        return ns;
+    }
+
+    // Returns the namespace based on the template file's location
+    string GetNamespace()
+    {
+        // Get the directory of the template file
+        string templateDir = System.IO.Path.GetDirectoryName(Host.TemplateFile);
+
+        // Find the project directory and project file
+        string projectDir = templateDir;
+        string[] csprojFiles = System.IO.Directory.GetFiles(projectDir, "*.csproj");
+        while (csprojFiles.Length == 0)
+        {
+            var parent = System.IO.Path.GetDirectoryName(projectDir);
+            if (string.IsNullOrEmpty(parent) || parent == projectDir) break;
+            projectDir = parent;
+            csprojFiles = System.IO.Directory.GetFiles(projectDir, "*.csproj");
+        }
+
+        // Use the project file name (without extension) as the root namespace
+        string rootNamespace = csprojFiles.Length > 0
+            ? System.IO.Path.GetFileNameWithoutExtension(csprojFiles[0])
+            : "DefaultNamespace";
+
+        // Get the relative path from project directory to template directory
+        string relativePath = templateDir.Substring(projectDir.Length).Trim('\\', '/');
+        if (!string.IsNullOrEmpty(relativePath))
+            rootNamespace += "." + relativePath.Replace("\\", ".").Replace("/", ".");
+
+        return rootNamespace;
+    }
+#>

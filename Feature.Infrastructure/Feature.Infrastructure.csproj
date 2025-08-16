@@ -41,6 +41,7 @@
     <Compile Include="AbstractImplementation\IntroductionViewModel.cs" />
     <Compile Include="Core\BrushToColorConverter.cs" />
     <Compile Include="Core\MetaDatakeys.cs" />
+    <None Include="Core\TemplateHelpers.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractImplementation\FeatureDemoTopic.cs" />
