@@ -1,6 +1,6 @@
 ﻿namespace BasicControls.Topics
 {
-    public class AddonMetadataKeys
+    public partial class AddonMetadataKeys
     {
         public const string BasicControlsTitle = "Basic Controls";
         public const string LabelControlTitle = "Label";
