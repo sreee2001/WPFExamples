@@ -101,47 +101,42 @@ WPFExamples/
 To add a new demo for a feature, for example a demo for SubTopic `Border` under Topic `Additional Controls`, follow these steps:
 
 1. **Reuse an existing Addin Project** created earlier for `Additional Controls` OR
-2. **Create a new .Net Framework WPF Class Library. Call it `AdditionalControls`
+2. **Create a new .Net Framework WPF Class Library**. Call it `AdditionalControls`
 3. For this example I am assuming the latter
-4. Set its output Directory to `$(SolutionDir)/bin/$(Configuration)/FeaturesDemo`
+4. Set its output Directory to `$(SolutionDir)/bin/$(Configuration)/Addons`
 5. **Add a new FeatureDemoTopic and SubFeatureDemoTopic classes:**
   ```csharp
   // AdditionalControls/BorderExample.cs
   namespace AdditionalControls
   {
-      public class AdditionalControlsMetaDataKeys
+      public class AddonMetadataKeys // <-- Can be Any Name
       {
-          public const string Title = "Additional Controls";
+          public const string AdditionalControlsTitle = "Additional Controls";
+          public const string BorderControlTitle = "Border Controls";
       }
       
       [Export(typeof(IFeatureDemoTopic))]
       public class AdditionalControls : FeatureDemoTopic
       {
-          public override string Title => AdditionalControlsMetaDataKeys.Title;
+          public override string Title => AddonMetadataKeys.AdditionalControlsTitle; // <-- Topic Name
       }
       
       [Export(typeof(IFeatureDemoSubTopic))]
-      [ExportMetadata(MetaDataKeys.TopicName, AdditionalControlsMetaDataKeys.Title)]
+      [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.AdditionalControlsTitle)] // <-- pass Topic Name
       public class BorderSubTopic : IFeatureDemoSubTopic
       {
-          public string Title => "Border Samples";
-          public void LaunchDemoWindow()
-          {
-              // Logic to launch Border Sample demo window
-              var borderExampleView = new Views.BorderExampleView();
-              borderExampleView.ShowDialog();
-          }
+          public string Title => AddonMetadataKeys.BorderControlTitle; // <-- Set the SubTopic, aka Control Name
       }
   }
   ```
 6. **Add a new Window for the UI: .xaml and backing .cs**
    ```xml
-   <!-- AdditionalControls/View/borderExampleView.xaml -->
-    <Window x:Class="AdditionalControls.Views.borderExampleView"
+   <!-- AdditionalControls/Border/borderDemoView.xaml -->
+    <UserControl x:Class="AdditionalControls.Border.BorderDemoView"
                  ...>
         <StackPanel>
             <TextBlock Text="Different Border Styles in WPF" FontSize="18" FontWeight="Bold" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-            <ItemsControl ItemsSource="{Binding BorderSamples}">
+            <ItemsControl ItemsSource="{Binding Samples}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" >
@@ -151,35 +146,42 @@ To add a new demo for a feature, for example a demo for SubTopic `Border` under 
                 </ItemsControl.ItemTemplate>                
             </ItemsControl>
         </StackPanel>
-    </Window>
+    </UserControl>
    ```
 
    ```C#
-    namespace AdditionalControls.Views
+    namespace AdditionalControls.Border
     {
         /// <summary>
-        /// Interaction logic for BorderExampleView.xaml
+        /// Interaction logic for BorderDemoView.xaml
         /// </summary>
-        public partial class BorderExampleView : Window
+        public partial class BorderDemoView : UserControl
         {
-            public BorderExampleView()
+            public BorderDemoView()
             {
                 InitializeComponent();
-                DataContext = new ViewModels.BorderExampleViewModel();
             }
         }
     }
    ```
-7. **Add viewmodel AdditionalControls.ViewModels.BorderExampleViewModel**
+7. **Add viewmodel AdditionalControls.Border.BorderDemoViewModel**
    ````C#
-   internal class LabelExampleViewModel : PropertyChangedBase
+   internal class BorderDemoViewModel : ControlDemoViewModel<BorderProperties>
    {
-     public ObservableCollection<LabelExample> LabelSamples {get; set;}
+       public BorderDemoViewModel()
+       {
+           Header = "Samples of Border control in WPF"; // <-- Give some text as header
+           // Initialize the collection `Samples` with some sample data
+           Samples = new ObservableCollection<BorderProperties>
+           {
+           ...
+           };
+       }
    }
    ````
-8. **Add model AdditionalControls.Models.BorderExample**
+8. **Add model AdditionalControls.Border.BorderExample**
    ````C#
-   internal class LabelExample {} // add any properties you want to control
+   internal class BorderProperties {} // add any properties you want to control
    ````
 ---
 
