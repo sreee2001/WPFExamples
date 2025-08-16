@@ -1,0 +1,13 @@
+﻿{
+    "metadataKeyClassName": "AddonMetadataKeys",
+    "topics": [
+        {
+            "topicName": "BasicControls",
+            "subTopicNames": [ "Button", "TextBox", "CheckBox", "RadioButton", "PasswordBox", "Image" ]
+        },
+        {
+            "topicName": "Panels",
+            "subTopicNames": [ "Canvas", "WrapPanel", "StackPanel", "DockPanel", "Grid" ]
+        }
+    ]
+}
