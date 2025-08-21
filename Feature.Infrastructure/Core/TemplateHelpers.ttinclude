@@ -107,3 +107,25 @@
         return input.Replace("\\", "\\\\");
     }
 #>
+<#+
+    // Helper method to get the project name from the .csproj file
+    // This assumes the .csproj file is in the same directory or a parent directory of the template file
+    string GetProjectName()
+    {
+        // Get the path to the template file
+        string templateFile = Host.TemplateFile;
+
+        // Walk up the directory tree to find the .csproj file
+        string dir = Path.GetDirectoryName(templateFile);
+        string projectFile = Directory.GetFiles(dir, "*.csproj").FirstOrDefault();
+
+        while (projectFile == null && Directory.GetParent(dir) != null)
+        {
+            dir = Directory.GetParent(dir).FullName;
+            projectFile = Directory.GetFiles(dir, "*.csproj").FirstOrDefault();
+        }
+
+        // Extract the project name (without extension)
+        return projectFile != null ? Path.GetFileNameWithoutExtension(projectFile) : "UnknownProject";
+    }
+#>
