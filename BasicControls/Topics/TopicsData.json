@@ -7,6 +7,13 @@
             "subTopics": [
                 {
                     "name": "Button",
+                    "header": "Button Control",
+                    "shortDescription": "A Button control that can be clicked to perform an action.",
+                    "descriptionList": [
+                        "The Button control is used to initiate an action when clicked.",
+                        "It can contain text, images, or other UI elements as content.",
+                        "Supports various properties for customization such as IsEnabled, Background, Foreground, etc."
+                    ],
                     "properties": [
                         { "name": "Content", "type": "object" },
                         { "name": "IsEnabled", "type": "bool" },
@@ -48,6 +55,13 @@
                 },
                 {
                     "name": "TextBox",
+                    "header": "TextBox Control",
+                    "shortDescription": "A TextBox control allows users to input and edit text.",
+                    "descriptionList": [
+                        "The TextBox control is used for single-line or multi-line text input.",
+                        "Supports text formatting, selection, and clipboard operations.",
+                        "Properties like IsReadOnly, MaxLength, and TextWrapping provide customization."
+                    ],
                     "properties": [
                         { "name": "Text", "type": "string" },
                         { "name": "IsReadOnly", "type": "bool" },
@@ -93,6 +107,13 @@
                 },
                 {
                     "name": "CheckBox",
+                    "header": "CheckBox Control",
+                    "shortDescription": "A CheckBox control allows users to select or clear an option.",
+                    "descriptionList": [
+                        "The CheckBox control represents a boolean option that can be checked, unchecked, or indeterminate.",
+                        "Supports three-state mode for indeterminate values.",
+                        "Can be used individually or in groups for multiple selections."
+                    ],
                     "properties": [
                         { "name": "IsChecked", "type": "bool?" },
                         { "name": "IsThreeState", "type": "bool" },
@@ -135,6 +156,13 @@
                 },
                 {
                     "name": "RadioButton",
+                    "header": "RadioButton Control",
+                    "shortDescription": "A RadioButton control allows users to select a single option from a group.",
+                    "descriptionList": [
+                        "RadioButton controls are used in groups to allow only one selection at a time.",
+                        "Each RadioButton in a group should have the same GroupName.",
+                        "Useful for presenting mutually exclusive options."
+                    ],
                     "properties": [
                         { "name": "IsChecked", "type": "bool?" },
                         { "name": "IsThreeState", "type": "bool" },
@@ -178,6 +206,13 @@
                 },
                 {
                     "name": "PasswordBox",
+                    "header": "PasswordBox Control",
+                    "shortDescription": "A PasswordBox control is used for secure text input.",
+                    "descriptionList": [
+                        "The PasswordBox control masks user input for sensitive data such as passwords.",
+                        "Does not support data binding for the Password property for security reasons.",
+                        "Supports properties like MaxLength and IsReadOnly."
+                    ],
                     "properties": [
                         { "name": "Password", "type": "string" },
                         { "name": "MaxLength", "type": "int" },
@@ -215,6 +250,13 @@
                 },
                 {
                     "name": "Image",
+                    "header": "Image Control",
+                    "shortDescription": "An Image control displays images in various formats.",
+                    "descriptionList": [
+                        "The Image control is used to display bitmap, PNG, JPEG, and other image formats.",
+                        "Supports stretching, alignment, and opacity settings.",
+                        "Can be used to enhance UI with icons, backgrounds, or decorative images."
+                    ],
                     "properties": [
                         { "name": "Source", "type": "ImageSource" },
                         { "name": "Stretch", "type": "Stretch" },
@@ -243,6 +285,13 @@
             "subTopics": [
                 {
                     "name": "Canvas", 
+                    "header": "Canvas Panel",
+                    "shortDescription": "A Canvas panel provides absolute positioning for child elements.",
+                    "descriptionList": [
+                        "The Canvas panel allows you to position child elements using coordinates.",
+                        "Ideal for drawing applications or scenarios requiring precise placement.",
+                        "Children are placed using Canvas.Left and Canvas.Top attached properties."
+                    ],
                     "properties": [
                         { "name": "Background", "type": "Brush" },
                         { "name": "Width", "type": "double" },
@@ -265,6 +314,13 @@
                 },
                 {
                     "name": "WrapPanel", 
+                    "header": "WrapPanel",
+                    "shortDescription": "A WrapPanel arranges child elements in sequential position, wrapping to the next line as needed.",
+                    "descriptionList": [
+                        "The WrapPanel arranges child elements in a horizontal or vertical orientation.",
+                        "When there is not enough space, elements wrap to the next line or column.",
+                        "Useful for toolbars, galleries, or dynamic layouts."
+                    ],
                     "properties": [
                         { "name": "ItemHeight", "type": "double" },
                         { "name": "ItemWidth", "type": "double" },
@@ -289,6 +345,13 @@
                 },
                 {
                     "name": "StackPanel", 
+                    "header": "StackPanel",
+                    "shortDescription": "A StackPanel arranges child elements into a single line that can be oriented horizontally or vertically.",
+                    "descriptionList": [
+                        "The StackPanel stacks child elements in a single direction (horizontal or vertical).",
+                        "Simple and efficient for linear layouts.",
+                        "Does not wrap content; use WrapPanel for wrapping behavior."
+                    ],
                     "properties": [
                         { "name": "Width", "type": "double" },
                         { "name": "Height", "type": "double" },
@@ -311,6 +374,13 @@
                 },
                 {
                     "name": "DockPanel", 
+                    "header": "DockPanel",
+                    "shortDescription": "A DockPanel defines an area where you can arrange child elements either horizontally or vertically, relative to each other.",
+                    "descriptionList": [
+                        "The DockPanel docks child elements to the top, bottom, left, or right edges.",
+                        "The last child can fill the remaining space if LastChildFill is true.",
+                        "Useful for toolbars, status bars, and flexible layouts."
+                    ],
                     "properties": [
                         { "name": "LastChildFill", "type": "bool" },
                         { "name": "Width", "type": "double" },
@@ -334,6 +404,13 @@
                 },
                 {
                     "name": "Grid" ,
+                    "header": "Grid Panel",
+                    "shortDescription": "A Grid panel provides a flexible grid area for arranging child elements in rows and columns.",
+                    "descriptionList": [
+                        "The Grid panel allows complex layouts using rows and columns.",
+                        "Supports row and column spanning for flexible arrangements.",
+                        "Ideal for forms, dashboards, and structured layouts."
+                    ],
                     "properties": [
                         { "name": "ShowGridLines", "type": "bool" },
                         { "name": "Width", "type": "double" },
