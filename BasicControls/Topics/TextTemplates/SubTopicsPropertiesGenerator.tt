@@ -41,6 +41,9 @@
     const string topicNameKey = "topicName";
     const string subTopicsKey = "subTopics";
     const string subTopicNameKey = "name";
+    const string propertiesKey = "properties";
+    const string propertyNameKey = "name";
+    const string propertyTypeKey = "type";
 
     // Read the topics data from the JSON file
     // Get topics array
@@ -66,16 +69,15 @@
         // Loop through subTopics
         foreach (var subTopic in subTopics)
         {
-
             // get the subTopicName
             string subTopicName = subTopic.ContainsKey(subTopicNameKey)
                 ? subTopic[subTopicNameKey].ToString()
                 : "UnknownSubTopic";
-
+                
             // Generate the class name based on topic and subTopic names
-            string className = $"{subTopicName}SubTopic";
+            string className = $"{subTopicName}Properties";
 
-            // Topic output directory
+            // sub topic output directory
             string topicOutputDirectoryName = subTopicName;
             string topicOutputDirectoryPath = Path.Combine(outputDirectory, topicOutputDirectoryName);
             EnsureOutputDirectoryExists(outputDirectory, topicOutputDirectoryName);
@@ -84,28 +86,73 @@
             string outputFilePath = Path.Combine(topicOutputDirectoryPath, $"{className}.cs");
 
             // Use a StringBuilder capture T4 template output
-            var sb = new StringBuilder();
+            var sbForProperties = new StringBuilder();
             var originalEnv = this.GenerationEnvironment;
-            this.GenerationEnvironment = sb;
+            this.GenerationEnvironment = sbForProperties;
 #>
 // Auto-generated file, DO NOT MODIFY
-using Feature.Infrastructure.Core;
-using Feature.Infrastructure.Interfaces;
-using System.ComponentModel.Composition;
+using Infrastructure.Base;
+using System.Windows;
+using System.Windows.Media;
+using System.Windows.Controls;
 
 namespace <#= namespaceName #>
 {
-    [Export(typeof(IFeatureDemoSubTopic))]
-    [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.<#= topicNameTitle #>)]
-    public partial class <#= className #> : IFeatureDemoSubTopic
+    public partial class <#= className #> : PropertyChangedBase
     {
-        public string Title => <#= metadataKeyClassName #>.<#= subTopicName #>Title;
+<#
+            // Restore the original GenerationEnvironment and write to file
+            this.GenerationEnvironment = originalEnv;
+            File.WriteAllText(outputFilePath, sbForProperties.ToString());
+
+            // for each property
+            // Foreach(var prop in properties)
+            // {
+            // }
+            var properties = (subTopic[propertiesKey] as System.Collections.ArrayList)
+            ?.Cast<Dictionary<string, object>>()
+            .ToList();
+            if (properties == null) continue;
+
+            foreach(var prop in properties)
+            {
+                // get the property Name
+                string propName = prop.ContainsKey(propertyNameKey)
+                    ? prop[propertyNameKey].ToString()
+                    : "UnknownProperty";
+
+                // get the property type
+                // get the property Name
+                string propType = prop.ContainsKey(propertyTypeKey)
+                    ? prop[propertyTypeKey].ToString()
+                    : "UnknownType";
+
+                originalEnv = this.GenerationEnvironment;
+                this.GenerationEnvironment = sbForProperties;
+                
+#>
+        private <#= propType #> <#= GetPrivateVariable(propName) #>;
+        public <#= propType #> <#= propName #>
+        {
+            get => <#= GetPrivateVariable(propName) #>;
+            set => SetField(ref <#= GetPrivateVariable(propName) #>, value);
+        }
+
+<#
+                // Restore the original GenerationEnvironment and write to file
+                this.GenerationEnvironment = originalEnv;
+                File.WriteAllText(outputFilePath, sbForProperties.ToString());
+            }
+
+            originalEnv = this.GenerationEnvironment;
+            this.GenerationEnvironment = sbForProperties;
+#>
     }
 }
 <#
     // Restore the original GenerationEnvironment and write to file
     this.GenerationEnvironment = originalEnv;
-    File.WriteAllText(outputFilePath, sb.ToString());
+    File.WriteAllText(outputFilePath, sbForProperties.ToString());
 #>
 <#
         }

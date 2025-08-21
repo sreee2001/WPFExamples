@@ -85,3 +85,25 @@
         }
     }
 #>
+<#+
+    // Helper method to create a lowerCamelCase version of a string
+    string ToLowerCamelCase(string input)
+    {
+        if (string.IsNullOrEmpty(input) || input.Length < 2)
+            return input;
+        return char.ToLower(input[0]) + input.Substring(1);
+    }
+
+    string GetPrivateVariable(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return string.Empty;
+        return "_" + ToLowerCamelCase(input);
+    }
+#>
+<#+
+    string EscapeBackslashes(string input)
+    {
+        return input.Replace("\\", "\\\\");
+    }
+#>
