@@ -60,3 +60,28 @@
         return rootNamespace;
     }
 #>
+<#+
+    // Helper method to read a JSON file and return its content as a string
+    Dictionary<string, object> ReadJsonFile(string relativePath)
+    {
+    	// Read data from the JSON configuration file
+        string jsonFilePath = Host.ResolvePath(relativePath);
+        string jsonContent = File.ReadAllText(jsonFilePath);
+	
+        var serializer = new JavaScriptSerializer();
+        var jsonData = serializer.Deserialize<Dictionary<string, object>>(jsonContent);
+
+        return jsonData;
+    }
+#>
+<#+
+    // Helper method to check the existence of outputDirectoryName under Parent Folder (case-sensitive key)
+    void EnsureOutputDirectoryExists(string parentDirectory, string outputDirectoryName)
+    {
+        string outputDirectory = Path.Combine(parentDirectory, outputDirectoryName);
+        if (!Directory.Exists(outputDirectory))
+        {
+            Directory.CreateDirectory(outputDirectory);
+        }
+    }
+#>

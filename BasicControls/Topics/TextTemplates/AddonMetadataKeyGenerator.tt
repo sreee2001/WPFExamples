@@ -63,6 +63,7 @@
         var originalEnvMetaDataKey = this.GenerationEnvironment;
         this.GenerationEnvironment = sbMetaDataKey;
 #>
+// Auto-generated file, DO NOT MODIFY
 namespace <#= namespaceName #>
 {
     public partial class <#= metadataKeyClassName #>
@@ -77,17 +78,56 @@ namespace <#= namespaceName #>
             string topicName = topic[topicNameKey] as string;
             string topicNameTitle = topicName + "Title";
 
+            // Create TopicTitles
             {
                 originalEnvMetaDataKey = this.GenerationEnvironment;
                 this.GenerationEnvironment = sbMetaDataKey;
 #>
+        #region <#= topicName #>
+
         public const string <#= topicNameTitle #> = "<#= ToSpacedString(topicName) #>";
+
 <#
 
                 // Restore the original GenerationEnvironment and write to file
                 this.GenerationEnvironment = originalEnvMetaDataKey;
                 File.WriteAllText(outputFilePathMetaDataKey, sbMetaDataKey.ToString());
+
+            } // End Create TopicTitles
+
+            // loop through subTopics and Create Titles
+            {
+                // fetch the subTopicNames
+                var subTopicNames = (topic[subTopicNamesKey] as System.Collections.ArrayList)
+                    ?.Cast<string>()
+                    .ToList();
+                if (subTopicNames == null) continue;
+
+                foreach(var subTopic in subTopicNames)
+                {
+                    originalEnvMetaDataKey = this.GenerationEnvironment;
+                    this.GenerationEnvironment = sbMetaDataKey;
+#>
+        public const string <#= subTopic #>Title = "<#= ToSpacedString(subTopic) #>";
+<#
+                    // Restore the original GenerationEnvironment and write to file
+                    this.GenerationEnvironment = originalEnvMetaDataKey;
+                    File.WriteAllText(outputFilePathMetaDataKey, sbMetaDataKey.ToString());
+
+                }
             }
+
+            originalEnvMetaDataKey = this.GenerationEnvironment;
+            this.GenerationEnvironment = sbMetaDataKey;
+#>
+
+        #endregion <#= topicName #>
+
+<#
+            // Restore the original GenerationEnvironment and write to file
+            this.GenerationEnvironment = originalEnvMetaDataKey;
+            File.WriteAllText(outputFilePathMetaDataKey, sbMetaDataKey.ToString());
+
         }
         originalEnvMetaDataKey = this.GenerationEnvironment;
         this.GenerationEnvironment = sbMetaDataKey;
@@ -101,65 +141,4 @@ namespace <#= namespaceName #>
     }
     // End of metadata key generation
 
-    // Loop through each topic
-    foreach (var topic in topics)
-    {
-        string topicName = topic[topicNameKey] as string;
-        string topicNameTitle = topicName + "Title";
-
-        var subTopicNames = (topic[subTopicNamesKey] as System.Collections.ArrayList)
-            ?.Cast<string>()
-            .ToList();
-        if (subTopicNames == null) continue;
-
-        // Loop through subTopicNames
-        foreach (var subTopic in subTopicNames)
-        {
-            // Generate the class name based on topic and subTopic names
-            string className = $"{subTopic}SubTopic";
-
-            // Generate the output file path
-            string outputFilePath = Path.Combine(outputDirectory, $"{className}.cs");
-
-            // Use a StringBuilder capture T4 template output
-            var sb = new StringBuilder();
-            var originalEnv = this.GenerationEnvironment;
-            this.GenerationEnvironment = sb;
-#>
-// Auto-generated file
-using Feature.Infrastructure.Core;
-using Feature.Infrastructure.Interfaces;
-using System.ComponentModel.Composition;
-
-namespace <#= namespaceName #>
-{
-    [Export(typeof(IFeatureDemoSubTopic))]
-    [ExportMetadata(MetaDataKeys.TopicName, AddonMetadataKeys.<#= topicNameTitle #>)]
-    public partial class <#= className #> : IFeatureDemoSubTopic
-    {
-        public string Title => <#= metadataKeyClassName #>.<#= topicName #>Title;
-    }
-}
-<#
-    // Restore the original GenerationEnvironment and write to file
-    this.GenerationEnvironment = originalEnv;
-    File.WriteAllText(outputFilePath, sb.ToString());
-#>
-<#
-        }
-    }
-#>
-<#+
-    // Helper method to read a JSON file and return its content as a string
-    Dictionary<string, object> ReadJsonFile(string relativePath)
-    {
-    	// Read data from the JSON configuration file
-        string jsonFilePath = Host.ResolvePath(relativePath);
-        string jsonContent = File.ReadAllText(jsonFilePath);
-	
-        var serializer = new JavaScriptSerializer();
-        var jsonData = serializer.Deserialize<Dictionary<string, object>>(jsonContent);
-
-        return jsonData;
-    }
 #>
