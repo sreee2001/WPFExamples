@@ -115,6 +115,10 @@
       <Project>{2EE34026-4CD5-47A2-95C7-4EB3D19B7352}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Feature.Infrastructure.Styles\Feature.Infrastructure.Styles.csproj">
+      <Project>{362e7832-0c85-496f-9fd3-f3e523ee5661}</Project>
+      <Name>Feature.Infrastructure.Styles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Feature.Infrastructure\Feature.Infrastructure.csproj">
       <Project>{b3f95cba-61b6-4844-8e04-b4f1d787977e}</Project>
       <Name>Feature.Infrastructure</Name>
