@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Feature.Infrastructure.Styles;component/CommonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <infraUIConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <infraUIConverters:BooleanToHiddenVisibilityConverter x:Key="BooleanToHiddenVisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
     <Window.Background>
@@ -49,7 +50,7 @@
                                 FontWeight="Bold" 
                                 HorizontalAlignment="Center" />
                     <Button Command="{Binding LaunchDemoCommand}" 
-                                Visibility="{Binding IsSubTopicSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                Visibility="{Binding IsDemoViewAvailable, Converter={StaticResource BooleanToHiddenVisibilityConverter}}"
                                 Grid.Column="1"
                                 Width="150" Height="30"
                                 Margin="0 5 0 0"

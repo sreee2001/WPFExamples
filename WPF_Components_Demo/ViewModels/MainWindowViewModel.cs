@@ -85,6 +85,7 @@ namespace WPF_Components_Demo
                 SetField(ref _selectedSubTopicViewModel, value); 
                 OnPropertyChanged(nameof(SelectedIntroductionViewModel));
                 OnPropertyChanged(nameof(IsSubTopicSelected));
+                OnPropertyChanged(nameof(IsDemoViewAvailable));
             }
         }
 
@@ -115,15 +116,36 @@ namespace WPF_Components_Demo
             {
                 if (_launchDemoCommand == null)
                 {
-                    _launchDemoCommand = new RelayCommand(param =>
-                    {
-                        if (SelectedSubTopicViewModel != null)
+                    _launchDemoCommand = new RelayCommand(
+                        executeParam =>
                         {
-                            LaunchDemo(SelectedSubTopicViewModel.SubTopic);
-                        }
-                    });
+                            if (SelectedSubTopicViewModel != null)
+                            {
+                                LaunchDemo(SelectedSubTopicViewModel.SubTopic);
+                            }
+                        }/*, 
+                        canExecuteParam =>
+                        {
+                            return SelectedSubTopicViewModel != null;
+                        }*/
+                        );
                 }
                 return _launchDemoCommand;
+            }
+        }
+
+        public bool IsDemoViewAvailable
+        {
+            get
+            {
+                if (SelectedSubTopicViewModel == null || SelectedSubTopicViewModel.SubTopic == null || SelectedSubTopicViewModel.SubTopic.Title == null)
+                    return false;
+
+                IEnumerable<Lazy<IDemonstrationViewModel, IHaveTitle>> enumerable = _allDemonstrationViewModels.Where(b => b.Metadata.Title == SelectedSubTopicViewModel.SubTopic.Title);
+                IEnumerable<IDemonstrationViewModel> ViewModels = enumerable
+                                .Select(b => b.Value);
+                var viewModel = ViewModels.FirstOrDefault();
+                return viewModel != null;
             }
         }
 
