@@ -41,7 +41,13 @@
     <Compile Include="AbstractImplementation\IntroductionViewModel.cs" />
     <Compile Include="Core\BrushToColorConverter.cs" />
     <Compile Include="Core\MetaDatakeys.cs" />
-    <None Include="Core\TemplateHelpers.ttinclude" />
+    <None Include="TextTemplateIncludes\AddonMetadataKeyGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\SubTopicsDataTemplatesGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\SubTopicsGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\SubTopicsIndroductionViewGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\SubTopicsViewModelsGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\SubTopicsPropertiesGenerator.ttinclude" />
+    <None Include="TextTemplateIncludes\TemplateHelpers.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractImplementation\FeatureDemoTopic.cs" />
@@ -66,6 +72,15 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextTemplateIncludes\TemplatedIntroductionView.xaml.cs.txt" />
+    <Content Include="TextTemplateIncludes\TemplatedIntroductionView.xaml.txt" />
+    <Content Include="TextTemplateIncludes\TemplatedSampleViewModel.cs.txt" />
+    <Content Include="TextTemplateIncludes\TemplatedIntroductionViewModel.cs.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

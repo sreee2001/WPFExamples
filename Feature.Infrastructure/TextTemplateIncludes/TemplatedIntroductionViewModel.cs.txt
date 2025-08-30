@@ -20,5 +20,7 @@ namespace __TemplateNamespace__
         };
 
         public override string SamplesIntroductionHeader => "Few Samples of __Template__ are provided below";
+
+        public __Template__SampleViewModel SampleContent {get;} = new __Template__SampleViewModel();
     }
 }

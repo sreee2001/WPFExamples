@@ -1,0 +1,6 @@
+﻿namespace __TemplateNamespace__
+{
+    internal class __TemplateClassName__
+    {
+    }
+}

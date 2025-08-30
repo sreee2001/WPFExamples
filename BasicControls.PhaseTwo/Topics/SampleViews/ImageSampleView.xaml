@@ -1,0 +1,97 @@
+﻿<UserControl x:Class="BasicControls.PhaseTwo.Topics.SampleViews.ImageSampleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BasicControls.PhaseTwo.Topics.SampleViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Feature.Infrastructure.Styles;component/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid >
+            <Grid.Resources>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                </Style>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Margin" Value="20"/>
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                </Style>
+            </Grid.Resources>
+
+            <!--introductionView_GridContent-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 1. Image with Stretch and Tooltip -->
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+            <Image 
+                   Source="../../Images/check_icon_green.png"
+                   Width="100" Height="100"
+                   Stretch="UniformToFill"
+                   ToolTip="Image with UniformToFill Stretch and Tooltip" />
+                <TextBlock Text="Image with UniformToFill Stretch and Tooltip" 
+                           HorizontalAlignment="Center"
+                           FontSize="14"/>
+            </StackPanel>
+            
+            <!-- 2. Image with Opacity and DropShadowEffect -->
+            <StackPanel Orientation="Vertical"  Grid.Row="0" Grid.Column="1">
+                <Image
+                       Source="../../Images/check_icon_green.png"
+                       Width="100" Height="100"
+                       Opacity="0.7"
+                       ToolTip="Image with Opacity and DropShadowEffect">
+                    <Image.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5"/>
+                    </Image.Effect>
+                </Image>
+                <TextBlock Text="Image with Opacity and DropShadowEffect" 
+                           HorizontalAlignment="Center"
+                           FontSize="14"/>
+            </StackPanel>
+            
+            <!-- 3. Image bound to ViewModel property (dynamic source) -->
+            <StackPanel Orientation="Vertical"  Grid.Row="1" Grid.Column="0">
+                <Image Grid.Row="1" Grid.Column="0"
+                   Width="100" Height="60"
+                   Source="{Binding DynamicImagePath}" />
+                <TextBlock Text="Image bound to ViewModel property (dynamic source)" 
+                           HorizontalAlignment="Center"
+                           FontSize="14"/>
+            </StackPanel>
+
+            <!-- 4. Image as Button Content with Rounded Corners -->
+            <StackPanel Orientation="Vertical"  Grid.Row="1" Grid.Column="1">
+                <Button Grid.Row="1" Grid.Column="1"
+                    Width="220" Height="100">
+                    <Button.Content>
+                        <Border CornerRadius="10" BorderBrush="Gray" BorderThickness="2">
+                            <Image Source="../../Images/check_icon_green.png" 
+                                   Stretch="UniformToFill" 
+                                   Width="90" Height="90" Margin="0"/>
+                        </Border>
+                    </Button.Content>
+                </Button>
+                <TextBlock Text="Image as Button Content with Rounded Corners" 
+                           HorizontalAlignment="Center"
+                           FontSize="14"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</UserControl>

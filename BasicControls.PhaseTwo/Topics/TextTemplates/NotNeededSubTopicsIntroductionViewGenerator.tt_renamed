@@ -1,0 +1,6 @@
+﻿<#@ template language="C#" hostspecific="true" #>
+<#@ output extension="ignore" #>
+<#@ include file="..\..\..\Feature.Infrastructure\TextTemplateIncludes\SubTopicsIndroductionViewGenerator.ttinclude" #>
+<#
+    GenerateSubTopicsIntroductionView("../TopicsData.json");
+#>

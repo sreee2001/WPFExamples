@@ -1,0 +1,6 @@
+﻿<#@ template language="C#" hostspecific="true" #>
+<#@ output extension="ignore" #>
+<#@ include file="..\..\..\Feature.Infrastructure\TextTemplateIncludes\SubTopicsDataTemplatesGenerator.ttinclude" #>
+<#
+    GenerateSubTopicsDataTemplates("../TopicsData.json");
+#>
