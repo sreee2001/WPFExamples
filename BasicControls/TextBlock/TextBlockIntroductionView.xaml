@@ -14,9 +14,13 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <StackPanel>
-        <common:ControlIntroductionDescriptionView/>
-        <Border  Style="{StaticResource RoundedPanelBorderStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <common:ControlIntroductionDescriptionView Grid.Row="0"/>
+        <Border  Style="{StaticResource RoundedPanelBorderStyle}" Grid.Row="1">
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -28,7 +32,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Header for the Samples -->
-                <Label Content="Few Samples of Labels are provided below:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Center" Margin="30 0 0 0">
+                <Label Content="Few Samples of TextBlocks are provided below:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Center" Margin="30 0 0 0">
                     <Label.ContentTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
@@ -89,5 +93,5 @@
             </Grid>
         </Border>
 
-    </StackPanel>
+    </Grid>
 </UserControl>

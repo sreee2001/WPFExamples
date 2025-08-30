@@ -14,9 +14,13 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <StackPanel>
-        <common:ControlIntroductionDescriptionView/>
-        <Border  Style="{StaticResource RoundedPanelBorderStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <common:ControlIntroductionDescriptionView Grid.Row="0"/>
+        <Border  Style="{StaticResource RoundedPanelBorderStyle}" Grid.Row="1">
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -65,5 +69,5 @@
                 <!-- Samples End -->
             </Grid>
         </Border>
-    </StackPanel>
+    </Grid>
 </UserControl>
