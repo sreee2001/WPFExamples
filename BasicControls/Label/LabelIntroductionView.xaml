@@ -16,10 +16,10 @@
     </UserControl.Resources>
     <StackPanel>
         <common:ControlIntroductionDescriptionView/>
-        <TextBlock Text="Few Samples of Labels are provided below" FontSize="16" HorizontalAlignment="Center"/>
         <Border  Style="{StaticResource RoundedPanelBorderStyle}">
             <Grid >
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
@@ -27,8 +27,18 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Simple Label" Grid.Row="0" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                <Label Content="Label with Image" Grid.Row="0" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!-- Header for the Samples -->
+                <Label Content="Few Samples of Labels are provided below:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" HorizontalAlignment="Center" Margin="30 0 0 0">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
+
+                <!-- Samples Start -->
+                <Label Content="Simple Label" Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Label Content="Label with Image" Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -38,20 +48,21 @@
                         </DataTemplate>
                     </Label.ContentTemplate>
                 </Label>
-                <Label Content="Label with TextBlock" Grid.Row="1" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Label with TextBlock" Grid.Row="2" Grid.Column="0" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.ContentTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
                         </DataTemplate>
                     </Label.ContentTemplate>
                 </Label>
-                <Label Content="Label with Button" Grid.Row="1" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Content="Label with Button" Grid.Row="2" Grid.Column="1" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label.ContentTemplate>
                         <DataTemplate>
                             <Button Content="{Binding}" Width="100" Height="30" Margin="5"/>
                         </DataTemplate>
                     </Label.ContentTemplate>
                 </Label>
+                <!-- Samples End -->
             </Grid>
         </Border>
     </StackPanel>

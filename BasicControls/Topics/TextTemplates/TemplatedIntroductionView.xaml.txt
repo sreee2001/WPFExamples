@@ -15,11 +15,19 @@
     </UserControl.Resources>
     <StackPanel>
         <common:ControlIntroductionDescriptionView/>
-        <TextBlock Text="Few Samples of __Template__ are provided below" FontSize="16" HorizontalAlignment="Center"/>
         <Border Style="{StaticResource RoundedPanelBorderStyle}">
-            <Grid >
+            <StackPanel Orientation="Vertical">
+                <Label Content="Few Samples of __Template__ are provided below" FontSize="16" HorizontalAlignment="Center">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
+                <Grid >
                 <!--__TEMPLATE_INTRODUCTIONVIEW_GRID_CONTENT__-->
-            </Grid>
+                </Grid>
+            </StackPanel>
         </Border>
     </StackPanel>
 </UserControl>

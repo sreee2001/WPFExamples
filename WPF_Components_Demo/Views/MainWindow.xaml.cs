@@ -40,6 +40,10 @@ namespace WPF_Components_Demo.Views
             {
                 viewModel.SelectedSubTopicViewModel = subTopicViewModel;
             }
+            else
+            {
+                viewModel.SelectedSubTopicViewModel = null;
+            }
         }
     }
 }

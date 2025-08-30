@@ -31,4 +31,35 @@
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Margin" Value="5"/>
     </Style>
+
+    <Style x:Key="HorizontalStripeBackgroundBorderStyle" TargetType="Border">
+        <Setter Property="Background" >
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile" Viewport="0,0,100,20" ViewportUnits="Absolute">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="#F0F8FF">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry Rect="0,0,100,20"/>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                            <GeometryDrawing Brush="#D6EAF8">
+                                <GeometryDrawing.Geometry>
+                                    <RectangleGeometry Rect="0,10,100,10"/>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="BorderBrush" Value="#4682B4"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+
 </ResourceDictionary>
+

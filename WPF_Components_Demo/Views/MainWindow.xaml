@@ -15,15 +15,59 @@
             <infraUIConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
     </Window.Resources>
-    <Border Style="{StaticResource RoundedPanelBorderStyle}">
+    <Window.Background>
+        <DrawingBrush TileMode="Tile" Viewport="0,0,100,20" ViewportUnits="Absolute">
+            <DrawingBrush.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing Brush="Bisque">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,100,20"/>
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                    <GeometryDrawing Brush="PeachPuff">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,10,100,10"/>
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </Window.Background>
+    <!--<Border Style="{StaticResource HorizontalStripeBackgroundBorderStyle}">-->
+    <Border >
         <DockPanel>
             <!-- #region Header Section -->
-            <Border Style="{StaticResource RoundedPanelBorderStyle}" DockPanel.Dock="Top">
-                <TextBlock  Text="Welcome to WPF Features Demonstration" 
-                            FontSize="28" 
-                            FontWeight="Bold" 
-                            Margin="5"
-                            HorizontalAlignment="Center" />
+            <Border DockPanel.Dock="Top" >
+                <Grid Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock  Text="Welcome to WPF Features Demonstration" 
+                                Grid.Column="0"
+                                FontSize="28" 
+                                FontWeight="Bold" 
+                                HorizontalAlignment="Center" />
+                    <Button Command="{Binding LaunchDemoCommand}" 
+                                Visibility="{Binding IsSubTopicSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                Grid.Column="1"
+                                Width="150" Height="30"
+                                Margin="0 5 0 0"
+                                Style="{StaticResource RoundedButtonStyle}"
+                                DockPanel.Dock="Top"
+                                HorizontalAlignment="Right"
+                                >
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                   Height="20" FontSize="16">Try it out</TextBlock>
+                                <Image Source="/Resources/Images/open_in_new_24dp_1F1F1F.png" 
+                                                HorizontalAlignment="Center" VerticalAlignment="Stretch"
+                                               Height="20" Width="20" Margin="10 0 0 0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
             </Border>
             <!-- #endregion Header -->
 
@@ -71,7 +115,7 @@
                                                     BorderThickness="1"
                                                     CornerRadius="6"
                                                     SnapsToDevicePixels="true">
-                                                    <ContentPresenter
+                                                    <ContentPresenter 
                                                         ContentSource="Header"
                                                         HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
@@ -121,33 +165,17 @@
             <!-- #endregion Navigator -->
 
             <!-- #region Selected Item Introduction Section -->
-            <Border Style="{StaticResource RoundedPanelBorderStyle}" DockPanel.Dock="Top">
-                <StackPanel Orientation="Vertical">
-                    <Button Command="{Binding LaunchDemoCommand}"
-                            Visibility="{Binding IsSubTopicSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
-                            Width="150" Height="30"
-                            Margin="0 5 0 0"
-                            Style="{StaticResource RoundedButtonStyle}"
-                            >
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
-                                           Height="20" FontSize="16">Try it out</TextBlock>
-                                <Image Source="/Resources/Images/open_in_new_24dp_1F1F1F.png" 
-                                        HorizontalAlignment="Center" VerticalAlignment="Stretch"
-                                       Height="20" Width="20" Margin="10 0 0 0" />
-                            </StackPanel>
-                        </Button.Content>
-                    </Button>
-
-                    <ScrollViewer>
-                        <ContentControl Content="{Binding SelectedIntroductionViewModel}" 
-                            Margin="0" 
-                            DockPanel.Dock="Bottom" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Stretch" />
-                    </ScrollViewer>
-                </StackPanel>
+            <!--<Border Style="{StaticResource RoundedPanelBorderStyle}" DockPanel.Dock="Top">-->
+            <Border DockPanel.Dock="Top">
+                <ScrollViewer Grid.Row="0"
+                                VerticalAlignment="Stretch"
+                                VerticalContentAlignment="Stretch">
+                    <ContentControl Content="{Binding SelectedIntroductionViewModel}" 
+                        Margin="0" 
+                        DockPanel.Dock="Bottom" 
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch" />
+                </ScrollViewer>
             </Border>
             <!-- #endregion Navigator -->
         </DockPanel>

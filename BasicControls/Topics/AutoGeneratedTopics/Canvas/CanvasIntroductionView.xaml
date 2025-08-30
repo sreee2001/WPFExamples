@@ -15,8 +15,15 @@
     </UserControl.Resources>
     <StackPanel>
         <common:ControlIntroductionDescriptionView/>
-        <TextBlock Text="Few Samples of Canvas are provided below" FontSize="16" HorizontalAlignment="Center"/>
         <Border Style="{StaticResource RoundedPanelBorderStyle}">
+            <StackPanel>
+                <Label Content="Few Samples of Canvas are provided below" FontSize="16" HorizontalAlignment="Center">
+                    <Label.ContentTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="16" FontWeight="Bold"/>
+                        </DataTemplate>
+                    </Label.ContentTemplate>
+                </Label>
             <ScrollViewer>
                 <Canvas Grid.Row="1" Grid.Column="1" Background="#E6E6FA" Margin="10" Height="200">
                     <TextBlock Text="Canvas with Multiple Shapes" FontSize="16" Canvas.Left="10" Canvas.Top="10"/>
@@ -27,6 +34,7 @@
                     <Path Data="M 100,300 L 150,250 L 200,300 Z" Fill="#FFD700" Canvas.Left="50" Canvas.Top="250"/>
                 </Canvas>
             </ScrollViewer>
+            </StackPanel>
         </Border>
     </StackPanel>
 </UserControl>
