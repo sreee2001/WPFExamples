@@ -13,7 +13,7 @@ namespace BasicControls.Resources
     /// font weights, colors, and font families. The collections are initialized based on predefined sources or system
     /// resources.</remarks>
     [Export]
-    internal class PropertyValuesCollection : PropertyValuesCollectionBase
+    public class PropertyValuesCollection : PropertyValuesCollectionBase
     {
         /// <summary>
         /// Gets the collection of font weights available for use.

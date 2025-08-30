@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BasicControls.Common
 {
-    internal class ControlDemoViewModel<T> : DemoViewModel<T> where T : class
+    public class ControlDemoViewModel<T> : DemoViewModel<T> where T : class
     {
         private PropertyValuesCollection propertyValuesCollection;
 
