@@ -1,0 +1,24 @@
+﻿using BasicControls.Common;
+using Feature.Infrastructure.Core;
+using Feature.Infrastructure.Interfaces;
+using System.Collections.ObjectModel;
+using System.ComponentModel.Composition;
+
+namespace __TemplateNamespace__
+{
+    [Export(typeof(IIntroductionViewModel))]
+    [ExportMetadata(MetaDataKeys.Title, AddonMetadataKeys.__TemplateTitle__)]
+    internal class __Template__IntroductionViewModel : ControlIntroductionViewModel, IIntroductionViewModel
+    {
+        public override string Title => AddonMetadataKeys.__TemplateTitle__;
+
+        public override string Header => "__TemplateHeader__";
+
+        public override ObservableCollection<string> DescriptionCollection { get; } = new ObservableCollection<string>
+        {
+            __TemplateDescriptions__
+        };
+
+        public override string SamplesIntroductionHeader => "Few Samples of __Template__ are provided below";
+    }
+}

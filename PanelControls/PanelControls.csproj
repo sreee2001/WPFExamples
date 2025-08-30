@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F805D48A-8384-4505-AF3C-8D25245BC036}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PanelControls</RootNamespace>
+    <AssemblyName>PanelControls</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\Addons\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\Addons\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Topics\TopicsData.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicControls\BasicControls.csproj">
+      <Project>{28137ee7-59c9-4db3-93f4-9b540fbfe3b0}</Project>
+      <Name>BasicControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotnetFrameworkReferenceLibraries\Infrastructure.UI\Infrastructure.UI.csproj">
+      <Project>{06566ac4-6904-4aa0-af8d-96700f5190a1}</Project>
+      <Name>Infrastructure.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DotnetFrameworkReferenceLibraries\Infrastructure\Infrastructure.csproj">
+      <Project>{2ee34026-4cd5-47a2-95c7-4eb3d19b7352}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Feature.Infrastructure.Styles\Feature.Infrastructure.Styles.csproj">
+      <Project>{362e7832-0c85-496f-9fd3-f3e523ee5661}</Project>
+      <Name>Feature.Infrastructure.Styles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Feature.Infrastructure\Feature.Infrastructure.csproj">
+      <Project>{b3f95cba-61b6-4844-8e04-b4f1d787977e}</Project>
+      <Name>Feature.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Topics\TextTemplates\AddonMetadataKeyGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AddonMetadataKeyGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\SubTopicsDataTemplatesGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubTopicsDataTemplatesGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\SubTopicsGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubTopicsGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\SubTopicsIntroductionViewGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubTopicsIntroductionViewGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\SubTopicsIntroductionViewModelGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubTopicsIntroductionViewModelGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\SubTopicsPropertiesGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubTopicsPropertiesGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="Topics\TextTemplates\TemplatedIntroductionView.xaml.cs.txt" />
+    <Content Include="Topics\TextTemplates\TemplatedIntroductionView.xaml.txt" />
+    <Content Include="Topics\TextTemplates\TemplatedIntroductionViewModel.cs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\DataTemplatesResourceDictionary.cs" />
+    <Compile Include="Core\PanelControl.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\AddonMetadataKeys.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Canvas\CanvasIntroductionView.xaml.cs">
+      <DependentUpon>CanvasIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Topics\AutoGeneratedTopics\Canvas\CanvasIntroductionViewModel.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Canvas\CanvasProperties.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Canvas\CanvasSubTopic.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\DockPanel\DockPanelIntroductionView.xaml.cs">
+      <DependentUpon>DockPanelIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Topics\AutoGeneratedTopics\DockPanel\DockPanelIntroductionViewModel.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\DockPanel\DockPanelProperties.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\DockPanel\DockPanelSubTopic.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Grid\GridIntroductionView.xaml.cs">
+      <DependentUpon>GridIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Topics\AutoGeneratedTopics\Grid\GridIntroductionViewModel.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Grid\GridProperties.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\Grid\GridSubTopic.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\StackPanel\StackPanelIntroductionView.xaml.cs">
+      <DependentUpon>StackPanelIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Topics\AutoGeneratedTopics\StackPanel\StackPanelIntroductionViewModel.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\StackPanel\StackPanelProperties.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\StackPanel\StackPanelSubTopic.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\WrapPanel\WrapPanelIntroductionView.xaml.cs">
+      <DependentUpon>WrapPanelIntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Topics\AutoGeneratedTopics\WrapPanel\WrapPanelIntroductionViewModel.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\WrapPanel\WrapPanelProperties.cs" />
+    <Compile Include="Topics\AutoGeneratedTopics\WrapPanel\WrapPanelSubTopic.cs" />
+    <Compile Include="Topics\TextTemplates\AddonMetadataKeyGenerator.cs">
+      <DependentUpon>AddonMetadataKeyGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Topics\TextTemplates\SubTopicsDataTemplatesGenerator.cs">
+      <DependentUpon>SubTopicsDataTemplatesGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Topics\TextTemplates\SubTopicsGenerator.cs">
+      <DependentUpon>SubTopicsGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Topics\TextTemplates\SubTopicsIntroductionViewGenerator.cs">
+      <DependentUpon>SubTopicsIntroductionViewGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Topics\TextTemplates\SubTopicsIntroductionViewModelGenerator.cs">
+      <DependentUpon>SubTopicsIntroductionViewModelGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Topics\TextTemplates\SubTopicsPropertiesGenerator.cs">
+      <DependentUpon>SubTopicsPropertiesGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Topics\AutoGeneratedTopics\Canvas\CanvasIntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Topics\AutoGeneratedTopics\DockPanel\DockPanelIntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Topics\AutoGeneratedTopics\Grid\GridIntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Topics\AutoGeneratedTopics\Resources\DataTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Topics\AutoGeneratedTopics\StackPanel\StackPanelIntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Topics\AutoGeneratedTopics\WrapPanel\WrapPanelIntroductionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

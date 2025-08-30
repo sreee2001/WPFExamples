@@ -1,0 +1,15 @@
+﻿using System.Windows.Controls;
+
+namespace __TemplateNamespace__
+{
+    /// <summary>
+    /// Interaction logic for __Template__IntroductionView.xaml
+    /// </summary>
+    public partial class __Template__IntroductionView : UserControl
+    {
+        public __Template__IntroductionView()
+        {
+            InitializeComponent();
+        }
+    }
+}
