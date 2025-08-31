@@ -24,5 +24,30 @@ namespace BasicControls.PhaseTwo.Topics.SampleViews
         {
             InitializeComponent();
         }
+
+        private void PasswordBox1_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            passwordPlaceholder.Visibility = string.IsNullOrEmpty(passwordBox1.Password)
+                ? Visibility.Visible
+                : Visibility.Collapsed;
+        }
+        // For Show/Hide Password (example logic)
+        private void ShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(passwordBox2.Password, "Password");
+        }
+
+        // For Validation
+        private void PasswordBox3_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var pb = sender as PasswordBox;
+            pb.BorderBrush = (pb.Password.Length < 8) ? Brushes.Red : Brushes.Green;
+        }
+
+        // For Caps Lock Warning
+        private void PasswordBox4_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            capsLockWarning.Visibility = Console.CapsLock ? Visibility.Visible : Visibility.Collapsed;
+        }
     }
 }
