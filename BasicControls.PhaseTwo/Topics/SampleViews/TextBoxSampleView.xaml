@@ -4,9 +4,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BasicControls.PhaseTwo.Topics.SampleViews"
+             xmlns:infraUIConverters="clr-namespace:Infrastructure.UI.Converters;assembly=Infrastructure.UI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <UserControl.Resources>
+        <infraUIConverters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <StackPanel>
+        <!-- 1. TextBox with Watermark (Placeholder) -->
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+            <TextBlock Text="1. TextBox with Watermark (Placeholder)" Margin="0,0,0,5"/>
+            <Grid>
+                <TextBox x:Name="watermarkTextBox" Width="200" Height="30"/>
+                <TextBlock Text="Enter your name"
+                       IsHitTestVisible="False"
+                       Foreground="Gray"
+                       Margin="5,0,0,0"
+                       VerticalAlignment="Center"
+                       Visibility="{Binding Text.Length, ElementName=watermarkTextBox, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=False}"/>
+            </Grid>
+        </StackPanel>
+
+        <!-- 2. TextBox with Input Validation (only numbers) -->
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+            <TextBlock Text="2. TextBox with Input Validation (only numbers)" Margin="0,0,0,5"/>
+            <TextBox Width="200" Height="30" PreviewTextInput="NumberOnlyTextBox_PreviewTextInput"
+                 ToolTip="Only numbers allowed"/>
+        </StackPanel>
+
+        <!-- 3. Multiline TextBox with Scrollbars and TextWrapping -->
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+            <TextBlock Text="3. Multiline TextBox with Scrollbars and TextWrapping" Margin="0,0,0,5"/>
+            <TextBox Width="200" Height="60" AcceptsReturn="True" TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                 Text="This is a multiline TextBox. Type more to see scrollbars."/>
+        </StackPanel>
+
+        <!-- 4. TextBox with Character Counter -->
+        <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+            <TextBlock Text="4. TextBox with Character Counter" Margin="0,0,0,5"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="counterTextBox" Width="150" Height="30" MaxLength="20" TextChanged="CounterTextBox_TextChanged"/>
+                <TextBlock x:Name="charCountTextBlock" Text="0/20" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
 </UserControl>

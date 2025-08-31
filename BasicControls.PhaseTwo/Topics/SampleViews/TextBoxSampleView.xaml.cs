@@ -24,5 +24,17 @@ namespace BasicControls.PhaseTwo.Topics.SampleViews
         {
             InitializeComponent();
         }
+
+        // For number-only TextBox
+        private void NumberOnlyTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !e.Text.All(char.IsDigit);
+        }
+
+        // For character counter
+        private void CounterTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            charCountTextBlock.Text = $"{counterTextBox.Text.Length}/20";
+        }
     }
 }
