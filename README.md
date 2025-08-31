@@ -13,6 +13,11 @@ The goal is the show example implementations of each component, categorically an
 If you want to learn about WPF, there are some nice tutorials available online.
 
 ---
+## Preview
+
+![Description](Images/WPF_Examples_Demo.gif)
+
+---
 
 ## Table of Contents
 
