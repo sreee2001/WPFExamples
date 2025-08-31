@@ -6,7 +6,77 @@
              xmlns:local="clr-namespace:BasicControls.PhaseTwo.Topics.SampleViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <StackPanel>
+        <!-- 1. RadioButton Grouping with GroupName -->
+        <StackPanel Orientation="Vertical" Margin="10 10 0 0">
+            <TextBlock Text="1. RadioButton Grouping with GroupName" />
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <RadioButton Content="Option 1" GroupName="GroupA" IsChecked="True" Margin="5"/>
+                <RadioButton Content="Option 2" GroupName="GroupA" Margin="5"/>
+                <RadioButton Content="Option 3" GroupName="GroupA" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- 2. RadioButton with Image and Text -->
+        <StackPanel Orientation="Vertical" Margin="10 10 0 0">
+            <TextBlock Text="2. RadioButton with Image and Text" />
+            <RadioButton GroupName="GroupB" Margin="5">
+                <RadioButton.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="../../Images/check_icon_green.png" Width="16" Height="16" Margin="0,0,5,0"/>
+                        <TextBlock Text="Image Option"/>
+                    </StackPanel>
+                </RadioButton.Content>
+            </RadioButton>
+        </StackPanel>
+
+        <!-- 3. RadioButton bound to ViewModel property -->
+        <StackPanel Orientation="Vertical" Margin="10 10 0 0">
+            <TextBlock Text="3. RadioButton bound to ViewModel property" />
+            <RadioButton Content="Bind to ViewModel" Margin="5"
+                 GroupName="GroupC"
+                 IsChecked="{Binding IsSpecialOptionSelected, Mode=TwoWay}"/>
+        </StackPanel>
+
+        <!-- 4. RadioButton with custom style and tooltip -->
+        <StackPanel Orientation="Vertical" Margin="10 10 0 0">
+            <TextBlock Text="4. RadioButton with custom style and tooltip" />
+            <RadioButton Content="Styled Option"
+                 GroupName="GroupD"
+                 ToolTip="This is a styled radio button">
+                <RadioButton.Style>
+                    <Style TargetType="RadioButton">
+                        <Setter Property="Foreground" Value="DarkBlue"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <!--<ControlTemplate TargetType="RadioButton">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Width="16" Height="16" Stroke="Navy" StrokeThickness="2"
+                                             Fill="{TemplateBinding Background}" Margin="0,0,5,0"/>
+                                        <ContentPresenter VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </ControlTemplate>-->
+                                <ControlTemplate TargetType="RadioButton">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid Width="16" Height="16" Margin="0,0,5,0">
+                                            <Ellipse Stroke="Navy" StrokeThickness="2" Fill="{TemplateBinding Background}"/>
+                                            <Ellipse x:Name="CheckedMark" Width="8" Height="8" Fill="Navy" Visibility="Collapsed"/>
+                                        </Grid>
+                                        <ContentPresenter VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="CheckedMark" Property="Visibility" Value="Visible"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </RadioButton.Style>
+            </RadioButton>
+        </StackPanel>
+    </StackPanel>
 </UserControl>
